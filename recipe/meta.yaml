@@ -16,7 +16,7 @@ source:
 
 build:
   skip: True  # [win]
-  number: 0
+  number: 1
   features:
     - blas_{{ variant }}
 
@@ -24,7 +24,7 @@ requirements:
   build:
     - ampl-mp
     - mumps
-    - metis
+    - metis 5.1.*
     - scotch
     - gcc
     - blas 1.1 {{ variant }}
@@ -33,7 +33,7 @@ requirements:
   run:
     - ampl-mp
     - mumps
-    - metis
+    - metis 5.1.*
     - scotch
     - libgcc
     - blas 1.1 {{ variant }}
