@@ -7,9 +7,15 @@
 mkdir build
 cd build
 
+if [ "$(uname)" == "Darwin" ]; then
+  export CXX=clang++
+  export CC=clang
+else
+  export CXX=g++
+  export CC=gcc
+fi
+
 ../configure \
-  CXX=g++ \
-  CC=gcc \
   CFLAGS="-I$PREFIX/include -I$PREFIX/include/asl" \
   CXXFLAGS=" -m64 -I$PREFIX/include -I$PREFIX/include/asl" \
   --with-blas-lib="-Wl,-rpath,$PREFIX/lib -L$PREFIX/lib -lopenblas" \
