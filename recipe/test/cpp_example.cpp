@@ -24,6 +24,7 @@ int main(int argv, char* argc[])
   // We are using the factory, since this allows us to compile this
   // example with an Ipopt Windows DLL
   SmartPtr<IpoptApplication> app = IpoptApplicationFactory();
+  app->Options()->SetNumericValue("tol", 1e-9);
 
   // Initialize the IpoptApplication and process the options
   ApplicationReturnStatus status;
