@@ -22,11 +22,11 @@ build:
 
 requirements:
   build:
+    - toolchain
     - ampl-mp
     - mumps
     - metis 5.1.*
     - scotch
-    - gcc
     - blas 1.1 {{ variant }}
     - openblas 0.2.19|0.2.19.*
 
@@ -35,7 +35,6 @@ requirements:
     - mumps
     - metis 5.1.*
     - scotch
-    - libgcc
     - blas 1.1 {{ variant }}
     - openblas 0.2.19|0.2.19.*
 
@@ -43,9 +42,6 @@ test:
   files:
     - test
     - mytoy.nl
-
-  requires:
-    - gcc
 
 about:
   home: https://projects.coin-or.org/Ipopt/
