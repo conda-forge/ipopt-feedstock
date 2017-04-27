@@ -6,12 +6,6 @@ ipopt mytoy.nl | grep -q "Optimal Solution"
 # Test linking against the ipopt library
 cd test
 
-if [ "$(uname)" == "Darwin" ]; then
-  export CXX=clang++
-else
-  export CXX=g++
-fi
-
 ${CXX} -I$PREFIX/include/coin  -c -o cpp_example.o cpp_example.cpp
 ${CXX} -I$PREFIX/include/coin  -c -o MyNLP.o MyNLP.cpp
 

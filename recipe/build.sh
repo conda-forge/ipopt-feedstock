@@ -7,14 +7,6 @@
 mkdir build
 cd build
 
-if [ "$(uname)" == "Darwin" ]; then
-  export CXX=clang++
-  export CC=clang
-else
-  export CXX=g++
-  export CC=gcc
-fi
-
 ../configure \
   CFLAGS="-I$PREFIX/include -I$PREFIX/include/asl" \
   CXXFLAGS=" -m64 -I$PREFIX/include -I$PREFIX/include/asl" \
