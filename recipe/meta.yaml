@@ -27,7 +27,7 @@ requirements:
     - mumps
     - metis 5.1.*
     - scotch
-    - gcc
+    - gcc                           # [osx]
     - blas 1.1 {{ variant }}
     - openblas 0.2.19|0.2.19.*
 
