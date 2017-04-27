@@ -1,28 +1,14 @@
-From 9bc686e39922f43e89554f183f9f5df9a554d14b Mon Sep 17 00:00:00 2001
-From: "Peter St. John" <peterc.stjohn@gmail.com>
-Date: Wed, 30 Nov 2016 11:37:15 -0700
-Subject: [PATCH] patching mpi
-
----
- src/Algorithm/LinearSolvers/IpMumpsSolverInterface.cpp | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/src/Algorithm/LinearSolvers/IpMumpsSolverInterface.cpp b/src/Algorithm/LinearSolvers/IpMumpsSolverInterface.cpp
-index e11ffaa..32049ee 100644
---- a/src/Algorithm/LinearSolvers/IpMumpsSolverInterface.cpp
-+++ b/src/Algorithm/LinearSolvers/IpMumpsSolverInterface.cpp
-@@ -14,7 +14,11 @@
- // (This would have to be taken out for a parallel MUMPS version!)
- #define MPI_COMM_WORLD IPOPT_MPI_COMM_WORLD
+--- a/src/Algorithm/LinearSolvers/IpMumpsSolverInterface.cpp	2017-04-26 01:45:44.334073203 +0200
++++ a/src/Algorithm/LinearSolvers/IpMumpsSolverInterface.cpp	2017-04-26 01:52:13.063595789 +0200
+@@ -16,11 +16,7 @@
  // The first header to include is the one for MPI.  
-+#ifdef MPI
- #include "mpi.h"
-+#else
-+#include "mumps_mpi.h"
-+#endif
+ // In newer ThirdParty/Mumps, mpi.h is renamed to mumps_mpi.h.
+ // We get informed about this by having COIN_USE_MUMPS_MPI_H defined.
+-#ifdef COIN_USE_MUMPS_MPI_H
+ #include "mumps_mpi.h"
+-#else
+-#include "mpi.h"
+-#endif
  
  #include "IpMumpsSolverInterface.hpp"
  
--- 
-2.7.4 (Apple Git-66)
-
