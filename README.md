@@ -7,7 +7,7 @@ Package license: EPL 1.0
 
 Feedstock license: BSD 3-Clause
 
-Summary: Software package for large-scale nonlinear optimization'
+Summary: Software package for large-scale nonlinear optimization
 
 
 
