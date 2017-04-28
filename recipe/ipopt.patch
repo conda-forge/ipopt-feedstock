@@ -17,7 +17,7 @@ index 5584846..80bc580 100644
  URL: https://projects.coin-or.org/Ipopt
  Version: @PACKAGE_VERSION@
 -Libs: -L${libdir} -lipopt @IPOPTLIB_PCLIBS@
-+Libs: -L${libdir} -lipopt
++Libs: -L${libdir} -lipopt -Wl,-rpath,${libdir}
 +Libs.private: @IPOPTLIB_PCLIBS@
  Cflags: -I${includedir}
  Requires: @IPOPTLIB_PCREQUIRES@
