@@ -1,6 +1,6 @@
 {% set name = "Ipopt" %}
-{% set version = "3.12.6" %}
-{% set sha256 = "b1b04fb2aaf424464c00c939fdd0b4075614d8d689b7bbba3cbaedf4a4c997a5" %}
+{% set version = "3.12.7" %}
+{% set sha256 = "e53d008fb2713cc6ee80035c4f312b7efaa5d5162a944298f92481b4aafe68b2" %}
 {% set variant = "openblas" %}
 
 package:
@@ -16,7 +16,7 @@ source:
 
 build:
   skip: True  # [win]
-  number: 2
+  number: 0
   features:
     - blas_{{ variant }}
 
@@ -52,8 +52,9 @@ about:
   home: https://projects.coin-or.org/Ipopt/
   license: EPL 1.0
   license_file: LICENSE
-  summary: Software package for large-scale nonlinear optimization'
+  summary: Software package for large-scale nonlinear optimization
 
 extra:
   recipe-maintainers:
     - pstjohn
+    - bluescarni
