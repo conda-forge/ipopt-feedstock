@@ -1,0 +1,42 @@
+From 37217ea31c76d7e26cc176fecc1f9261cd3f1ed9 Mon Sep 17 00:00:00 2001
+From: "Peter St. John" <peterc.stjohn@gmail.com>
+Date: Fri, 28 Apr 2017 07:32:23 -0600
+Subject: [PATCH] patching
+
+---
+ Ipopt/ipopt.pc.in                                            | 3 ++-
+ Ipopt/src/Algorithm/LinearSolvers/IpMumpsSolverInterface.cpp | 4 ----
+ 2 files changed, 2 insertions(+), 5 deletions(-)
+
+diff --git a/Ipopt/ipopt.pc.in b/Ipopt/ipopt.pc.in
+index 5584846..80bc580 100644
+--- a/Ipopt/ipopt.pc.in
++++ b/Ipopt/ipopt.pc.in
+@@ -7,6 +7,7 @@ Name: IPOPT
+ Description: Interior Point Optimizer
+ URL: https://projects.coin-or.org/Ipopt
+ Version: @PACKAGE_VERSION@
+-Libs: -L${libdir} -lipopt @IPOPTLIB_PCLIBS@
++Libs: -L${libdir} -lipopt
++Libs.private: @IPOPTLIB_PCLIBS@
+ Cflags: -I${includedir}
+ Requires: @IPOPTLIB_PCREQUIRES@
+diff --git a/Ipopt/src/Algorithm/LinearSolvers/IpMumpsSolverInterface.cpp b/Ipopt/src/Algorithm/LinearSolvers/IpMumpsSolverInterface.cpp
+index 77b584f..bfb6225 100644
+--- a/Ipopt/src/Algorithm/LinearSolvers/IpMumpsSolverInterface.cpp
++++ b/Ipopt/src/Algorithm/LinearSolvers/IpMumpsSolverInterface.cpp
+@@ -16,11 +16,7 @@
+ // The first header to include is the one for MPI.  
+ // In newer ThirdParty/Mumps, mpi.h is renamed to mumps_mpi.h.
+ // We get informed about this by having COIN_USE_MUMPS_MPI_H defined.
+-#ifdef COIN_USE_MUMPS_MPI_H
+ #include "mumps_mpi.h"
+-#else
+-#include "mpi.h"
+-#endif
+ 
+ #include "IpMumpsSolverInterface.hpp"
+ 
+-- 
+2.7.4 (Apple Git-66)
+
