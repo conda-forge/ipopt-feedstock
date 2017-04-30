@@ -12,11 +12,11 @@ source:
   url: http://www.coin-or.org/download/pkgsource/{{ name }}/{{ name }}-{{ version }}.tgz
   sha256: {{ sha256 }}
   patches:
-    - ipopt.patch
+    - mumps_mpi.patch
 
 build:
   skip: True  # [win]
-  number: 2
+  number: 3
   features:
     - blas_{{ variant }}
 
