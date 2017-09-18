@@ -5,46 +5,46 @@
 
 package:
   name: {{ name|lower }}
-  version: {{ version }} # [not win]
-  version: "3.11.1" # [win]
+  version: {{ version }}  # [not win]
+  version: "3.11.1"  # [win]
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz # [not win]
-  url: http://www.coin-or.org/download/pkgsource/{{ name }}/{{ name }}-{{ version }}.tgz # [not win]
-  sha256: {{ sha256 }} # [not win]
+  fn: {{ name }}-{{ version }}.tar.gz  # [not win]
+  url: http://www.coin-or.org/download/pkgsource/{{ name }}/{{ name }}-{{ version }}.tgz  # [not win]
+  sha256: {{ sha256 }}  # [not win]
   patches:
-    - ipopt.patch # [not win]
-  fn: Ipopt-3.11.1-win64-intel13.1.zip # [win64]
-  url: https://www.coin-or.org/download/binary/Ipopt/Ipopt-3.11.1-win64-intel13.1.zip # [win64]
-  sha256: a2a82250574e8e557fdf668165ac5d60486e8c6e91c4228cd80a1f06c88c2757 # [win64]
-  fn: Ipopt-3.11.1-win32-cl16ifort13.1.zip # [win32]
-  url: https://www.coin-or.org/download/binary/Ipopt/Ipopt-3.11.1-win32-cl16ifort13.1.zip # [win32]
-  sha256: 1902a323f7e98e9dc4c9957b3fcf553ebec9a31d7b9e4335c9d454289b83ff6 # [win32]
+    - ipopt.patch  # [not win]
+  fn: Ipopt-3.11.1-win64-intel13.1.zip  # [win64]
+  url: https://www.coin-or.org/download/binary/Ipopt/Ipopt-3.11.1-win64-intel13.1.zip  # [win64]
+  sha256: a2a82250574e8e557fdf668165ac5d60486e8c6e91c4228cd80a1f06c88c2757  # [win64]
+  fn: Ipopt-3.11.1-win32-cl16ifort13.1.zip  # [win32]
+  url: https://www.coin-or.org/download/binary/Ipopt/Ipopt-3.11.1-win32-cl16ifort13.1.zip  # [win32]
+  sha256: 1902a323f7e98e9dc4c9957b3fcf553ebec9a31d7b9e4335c9d454289b83ff6  # [win32]
 
 build:
   number: 1
   features:
-    - blas_{{ variant }} # [not win]
+    - blas_{{ variant }}  # [not win]
 
 requirements:
   build:
     - toolchain
-    - ampl-mp # [not win]
-    - mumps # [not win]
-    - metis 5.1.* # [not win]
-    - scotch # [not win]
-    - gcc                           # [osx]
-    - blas 1.1 {{ variant }} # [not win]
-    - openblas 0.2.19|0.2.19.* # [not win]
+    - ampl-mp  # [not win]
+    - mumps  # [not win]
+    - metis 5.1.*  # [not win]
+    - scotch  # [not win]
+    - gcc  # [osx]
+    - blas 1.1 {{ variant }}  # [not win]
+    - openblas 0.2.19|0.2.19.*  # [not win]
 
   run:
-    - ampl-mp # [not win]
-    - mumps # [not win]
-    - metis 5.1.* # [not win]
-    - scotch # [not win]
-    - libgfortran # [not win]
-    - blas 1.1 {{ variant }} # [not win]
-    - openblas 0.2.19|0.2.19.* # [not win]
+    - ampl-mp  # [not win]
+    - mumps  # [not win]
+    - metis 5.1.*  # [not win]
+    - scotch  # [not win]
+    - libgfortran  # [not win]
+    - blas 1.1 {{ variant }}  # [not win]
+    - openblas 0.2.19|0.2.19.*  # [not win]
 
 test:
   files:
