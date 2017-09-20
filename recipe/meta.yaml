@@ -19,7 +19,7 @@ source:
   sha256: a2a82250574e8e557fdf668165ac5d60486e8c6e91c4228cd80a1f06c88c2757 # [win64]
   fn: Ipopt-3.11.1-win32-cl16ifort13.1.zip # [win32]
   url: https://www.coin-or.org/download/binary/Ipopt/Ipopt-3.11.1-win32-cl16ifort13.1.zip # [win32]
-  sha256: 1902a323f7e98e9dc4c9957b3fcf553ebec9a31d7b9e4335c9d454289b83ff6 # [win32]
+  sha256: 1902a323f7e98e9dc4c9957b3fcf553ebec9a31d7b9e4335c9d454289b83ff6b # [win32]
 
 build:
   number: 1
