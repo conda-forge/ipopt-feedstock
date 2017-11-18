@@ -21,7 +21,7 @@ source:
   url: https://www.coin-or.org/download/binary/Ipopt/Ipopt-3.11.1-win32-cl16ifort13.1.zip  # [win32]
   sha256: 1902a323f7e98e9dc4c9957b3fcf553ebec9a31d7b9e4335c9d454289b83ff6b  # [win32]
 build:
-  number: 1
+  number: 2
   features:
     - blas_{{ variant }}  # [not win]
 
@@ -34,7 +34,7 @@ requirements:
     - scotch  # [not win]
     - gcc  # [osx]
     - blas 1.1 {{ variant }}  # [not win]
-    - openblas 0.2.19|0.2.19.*  # [not win]
+    - openblas 0.2.20|0.2.20.*  # [not win]
 
   run:
     - ampl-mp  # [not win]
@@ -43,7 +43,7 @@ requirements:
     - scotch  # [not win]
     - libgfortran  # [not win]
     - blas 1.1 {{ variant }}  # [not win]
-    - openblas 0.2.19|0.2.19.*  # [not win]
+    - openblas 0.2.20|0.2.20.*  # [not win]
 
 test:
   files:
