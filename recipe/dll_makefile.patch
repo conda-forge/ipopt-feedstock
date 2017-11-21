@@ -1,0 +1,15 @@
+diff --git a/src/Interfaces/Makefile.in b/src/Interfaces/Makefile.in
+index 1c6d8a0..b79f8d0 100644
+--- a/src/Interfaces/Makefile.in
++++ b/src/Interfaces/Makefile.in
+@@ -479,6 +479,10 @@ clean-libLTLIBRARIES:
+ libipopt.la: $(libipopt_la_OBJECTS) $(libipopt_la_DEPENDENCIES) 
+ 	$(CXXLINK) -rpath $(libdir) $(libipopt_la_LDFLAGS) $(libipopt_la_OBJECTS) $(libipopt_la_LIBADD) $(LIBS)
+
++libipopt.dll: $(libipopt_la_OBJECTS) $(libipopt_la_DEPENDENCIES)
++	$(CXXLINK) $(AM_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -static -shared -o $@ \
++-Wl,-rpath,$(libdir) $(libipopt_la_LDFLAGS) $(libipopt_la_OBJECTS) -lipopt -ldmumps -lmumps_common -lopenblas -lgfortran
++
+ mostlyclean-compile:
+ 	-rm -f *.$(OBJEXT)
+ 
