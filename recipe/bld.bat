@@ -1,21 +1,18 @@
-xcopy include\* %LIBRARY_INC% /sy
-xcopy lib\* %LIBRARY_LIB% /sy
-copy share\coin\doc\Ipopt\LICENSE LICENSE
-copy share\coin\doc\Ipopt\README README
-
 mkdir build
 cd build
 
-rm /mingw-w64/bin/make.exe
-bash -c "CXXDEFS=-DCOIN_USE_MUMPS_MPI_H ADD_CXXFLAGS='-I${PREFIX}/include -L${PREFIX}/lib' ../configure --build=x86_64-w64-mingw32 --disable-linear-solver-loader --with-blas-lib='-lopenblas' --with-mumps-lib='-ldmumps -lmumps_common -lpord -lgfortran' --enable-shared --enable-dependency-linking --prefix=${PREFIX}"
-cp /mingw-w64/bin/mingw32-make.exe /mingw-w64/bin/make.exe
-mingw32-make clean
-mingw32-make test
-mingw32-make libipopt.dll
-rm /mingw-w64/bin/make.exe
+rem rm /mingw-w64/bin/make.exe
+bash -c "CXXDEFS=-DCOIN_USE_MUMPS_MPI_H ADD_CXXFLAGS='-I/mingw-w64/include -L/mingw-w64/lib -L/mingw-w64/bin' ../configure --build=x86_64-w64-mingw32 --disable-linear-solver-loader --with-blas-lib='-lopenblas' --with-mumps-lib='-ldmumps -lmumps_common -lpord -lgfortran' --enable-dependency-linking --prefix=/mingw-w64"
+rem cp /mingw-w64/bin/mingw32-make.exe /mingw-w64/bin/make.exe
+make clean
+make test
+cd src\Interfaces
+make libipopt.dll
+cd ..\..
+rem rm /mingw-w64/bin/make.exe
 
-mingw32-make install
-copy src\Interfaces\libipopt.dll %LIBRARY_LIB%
+make install
+bash -c "/usr/bin/install -m 644 src/Interfaces/libipopt.dll /mingw-w64/bin"
 
 
 if errorlevel 1 exit 1

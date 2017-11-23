@@ -35,12 +35,13 @@ requirements:
 
   run:
     - ampl-mp  # [not win]
-    - mumps # [not win]
+    - mumps
     - metis 5.1.*  # [not win]
     - scotch  # [not win]
     - libgfortran  # [not win]
     - blas 1.1 {{ variant }}  # [not win]
     - openblas 0.2.19|0.2.19.*  # [not win]
+    - m2w64-openblas # [win]
 
 test:
   files:
