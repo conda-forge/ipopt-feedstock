@@ -1,6 +1,6 @@
 {% set name = "Ipopt" %}
-{% set version = "3.12.8" %}
-{% set sha256 = "54938be9b7398869a7d3974e545117884001847e23939ba0a2c71fa7a898210f" %}
+{% set version = "3.12.9" %}
+{% set sha256 = "145ecede35f6127e7e8c6df1c66eca5a9aef71312d5b2a15310a71a971041acb" %}
 {% set variant = "openblas" %}
 
 package:
@@ -15,7 +15,7 @@ source:
     - ipopt.patch
 
 build:
-  number: 3
+  number: 0
   skip: True  # [win]
   number: 0
   features:
