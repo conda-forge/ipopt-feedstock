@@ -1,6 +1,6 @@
 {% set name = "Ipopt" %}
-{% set version = "3.12.8" %}
-{% set sha256 = "54938be9b7398869a7d3974e545117884001847e23939ba0a2c71fa7a898210f" %}
+{% set version = "3.12.9" %}
+{% set sha256 = "145ecede35f6127e7e8c6df1c66eca5a9aef71312d5b2a15310a71a971041acb" %}
 {% set variant = "openblas" %}
 
 package:
@@ -14,7 +14,7 @@ source:
     - ipopt.patch # [not win]
     - dll_makefile.patch # [win]
 build:
-  number: 1
+  number: 2
   features:
     - blas_{{ variant }}  # [not win]
 
@@ -28,7 +28,7 @@ requirements:
     - scotch  # [not win]
     - gcc  # [osx]
     - blas 1.1 {{ variant }}  # [not win]
-    - openblas 0.2.19|0.2.19.*  # [not win]
+    - openblas 0.2.20|0.2.20.*  # [not win]
     - m2w64-openblas # [win]
     - posix # [win]
     - patch # [win]
@@ -40,7 +40,7 @@ requirements:
     - scotch  # [not win]
     - libgfortran  # [not win]
     - blas 1.1 {{ variant }}  # [not win]
-    - openblas 0.2.19|0.2.19.*  # [not win]
+    - openblas 0.2.20|0.2.20.*  # [not win]
     - m2w64-openblas # [win]
 
 test:
