@@ -11,8 +11,8 @@ source:
   url: http://www.coin-or.org/download/pkgsource/{{ name }}/{{ name }}-{{ version }}.tgz
   sha256: {{ sha256 }}
   patches:
-    - ipopt.patch # [not win]
-    - dll_makefile.patch # [win]
+    - ipopt.patch  # [not win]
+    - dll_makefile.patch  # [win]
 build:
   number: 2
   features:
@@ -20,8 +20,8 @@ build:
 
 requirements:
   build:
-    - toolchain # [not win]
-    - m2w64-toolchain # [win]
+    - toolchain  # [not win]
+    - m2w64-toolchain  # [win]
     - ampl-mp  # [not win]
     - mumps
     - metis 5.1.*  # [not win]
@@ -29,9 +29,9 @@ requirements:
     - gcc  # [osx]
     - blas 1.1 {{ variant }}  # [not win]
     - openblas 0.2.20|0.2.20.*  # [not win]
-    - m2w64-openblas # [win]
-    - posix # [win]
-    - patch # [win]
+    - m2w64-openblas  # [win]
+    - posix  # [win]
+    - patch  # [win]
 
   run:
     - ampl-mp  # [not win]
@@ -41,7 +41,7 @@ requirements:
     - libgfortran  # [not win]
     - blas 1.1 {{ variant }}  # [not win]
     - openblas 0.2.20|0.2.20.*  # [not win]
-    - m2w64-openblas # [win]
+    - m2w64-openblas  # [win]
 
 test:
   files:
@@ -49,9 +49,9 @@ test:
     - mytoy.nl
 
   requires:
-    - toolchain # [not win]
-    - m2w64-toolchain # [win]
-    - posix # [win]
+    - toolchain  # [not win]
+    - m2w64-toolchain  # [win]
+    - posix  # [win]
 
 about:
   home: https://projects.coin-or.org/Ipopt/
