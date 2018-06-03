@@ -45,7 +45,10 @@ requirements:
 
 test:
   files:
-    - test
+    - cpp_example.cpp
+    - cpp_example.hpp
+    - MyNLP.cpp
+    - MyNLP.hpp
     - mytoy.nl
 
   requires:
