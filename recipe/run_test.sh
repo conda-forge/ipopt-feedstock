@@ -4,7 +4,6 @@
 ipopt mytoy.nl | grep -q "Optimal Solution"
 
 # Test linking against the ipopt library
-cd test
 
 ${CXX} -I$PREFIX/include/coin  -c -o cpp_example.o cpp_example.cpp
 ${CXX} -I$PREFIX/include/coin  -c -o MyNLP.o MyNLP.cpp
