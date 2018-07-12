@@ -4,12 +4,3 @@ cxx_compiler:
 - toolchain_cxx
 fortran_compiler:
 - toolchain_fort
-metis:
-- '5.1'
-openblas:
-- 0.2.20
-pin_run_as_build:
-  metis:
-    max_pin: x.x
-  openblas:
-    max_pin: x.x.x

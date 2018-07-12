@@ -10,12 +10,3 @@ macos_machine:
 - x86_64-apple-darwin13.4.0
 macos_min_version:
 - '10.9'
-metis:
-- '5.1'
-openblas:
-- 0.2.20
-pin_run_as_build:
-  metis:
-    max_pin: x.x
-  openblas:
-    max_pin: x.x.x
