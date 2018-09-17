@@ -1,6 +1,6 @@
 {% set name = "Ipopt" %}
-{% set version = "3.12.10" %}
-{% set sha256 = "8e0b1469e0fdbd4e64188a1645de8ac58087d74312dff6dce5bf5ab132f138f1" %}
+{% set version = "3.12.11" %}
+{% set sha256 = "6fb105f01daf7cb85840d8e0804ff78d4b0288532dd4f593e7527564f72defe4" %}
 {% set variant = "openblas" %}
 
 package:
