@@ -15,9 +15,9 @@ source:
     - ipopt.patch
 
 build:
-  number: 0
+  number: 1000
   skip: True  # [win]
-  number: 0
+  number: 1000
   features:
     - blas_{{ variant }}
 
