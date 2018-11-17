@@ -47,7 +47,9 @@ test:
     - mytoy.nl
 
   requires:
-    - toolchain
+    - {{ compiler('fortran') }}
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
 
 about:
   home: https://projects.coin-or.org/Ipopt/
