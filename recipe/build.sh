@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# if [ "$(uname)" == "Darwin" ]; then
-# else
-# fi
+if [ "$(uname)" == "Linux" ]; then
+  export LDFLAGS="${LDFLAGS} -lrt"
+fi
 
 mkdir build
 cd build
