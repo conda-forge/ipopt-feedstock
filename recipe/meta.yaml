@@ -1,6 +1,6 @@
 {% set name = "Ipopt" %}
-{% set version = "3.12.11" %}
-{% set sha256 = "6fb105f01daf7cb85840d8e0804ff78d4b0288532dd4f593e7527564f72defe4" %}
+{% set version = "3.12.12" %}
+{% set sha256 = "1283c0eb425dffedc0d6d4b7ac78c18c15f84d666f519e1689f6b989a4e98f50" %}
 {% set variant = "openblas" %}
 
 package:
@@ -11,13 +11,10 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: http://www.coin-or.org/download/pkgsource/{{ name }}/{{ name }}-{{ version }}.tgz
   sha256: {{ sha256 }}
-  patches:
-    - ipopt.patch
 
 build:
-  number: 0
   skip: True  # [win]
-  number: 0
+  number: 1001
   features:
     - blas_{{ variant }}
 
@@ -28,7 +25,7 @@ requirements:
     - {{ compiler('cxx') }}
   host:
     - ampl-mp
-    - mumps
+    - mumps-seq
     - metis
     - scotch
     - blas 1.1 {{ variant }}
@@ -48,7 +45,9 @@ test:
     - mytoy.nl
 
   requires:
-    - toolchain
+    - {{ compiler('fortran') }}
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
 
 about:
   home: https://projects.coin-or.org/Ipopt/
