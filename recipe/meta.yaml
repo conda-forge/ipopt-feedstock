@@ -1,7 +1,6 @@
 {% set name = "Ipopt" %}
 {% set version = "3.12.12" %}
 {% set sha256 = "1283c0eb425dffedc0d6d4b7ac78c18c15f84d666f519e1689f6b989a4e98f50" %}
-{% set variant = "openblas" %}
 
 package:
   name: {{ name|lower }}
@@ -14,9 +13,7 @@ source:
 
 build:
   skip: True  # [win]
-  number: 1001
-  features:
-    - blas_{{ variant }}
+  number: 1002
 
 requirements:
   build:
@@ -24,20 +21,17 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
+    - libblas
+    - liblapack
     - ampl-mp
     - mumps-seq
     - metis
     - scotch
-    - blas 1.1 {{ variant }}
-    - openblas
-
   run:
     - ampl-mp
     - mumps
     - metis
     - scotch
-    - blas 1.1 {{ variant }}
-    - openblas
 
 test:
   files:
