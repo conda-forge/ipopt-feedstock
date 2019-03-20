@@ -14,7 +14,6 @@ source:
 build:
   skip: True  # [win]
   number: 1002
-  features:
 
 requirements:
   build:
@@ -23,12 +22,11 @@ requirements:
     - {{ compiler('cxx') }}
   host:
     - libblas
-    - libcblas
+    - liblapack
     - ampl-mp
     - mumps-seq
     - metis
     - scotch
-
   run:
     - ampl-mp
     - mumps
