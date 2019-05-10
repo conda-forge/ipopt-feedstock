@@ -13,7 +13,7 @@ source:
 
 build:
   skip: True  # [win]
-  number: 1002
+  number: 1003
 
 requirements:
   build:
@@ -29,7 +29,7 @@ requirements:
     - scotch
   run:
     - ampl-mp
-    - mumps
+    - mumps-seq
     - metis
     - scotch
 
