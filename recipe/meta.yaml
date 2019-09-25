@@ -13,7 +13,7 @@ source:
 
 build:
   skip: True  # [win]
-  number: 1005
+  number: 1006
 
 requirements:
   build:
