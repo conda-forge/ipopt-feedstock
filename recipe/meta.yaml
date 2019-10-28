@@ -13,7 +13,9 @@ source:
 
 build:
   skip: True  # [win]
-  number: 1006
+  number: 1007
+  run_exports:
+    - {{ pin_subpackage('ipopt', max_pin='x.x') }}
 
 requirements:
   build:
