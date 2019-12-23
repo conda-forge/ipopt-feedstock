@@ -594,13 +594,13 @@ endif ()
 
 include_directories(${CMAKE_BINARY_DIR}/Dependencies/${CMAKE_CFG_INTDIR}/include
                     ${CMAKE_BINARY_DIR}/Dependencies/${CMAKE_CFG_INTDIR}/include/ampl
-                    ${BUILD_PREFIX}/Library/mingw-w64/include/mumps_seq
-                    ${BUILD_PREFIX}/Library/mingw-w64/include
+                    $ENV{BUILD_PREFIX}/Library/mingw-w64/include/mumps_seq
+                    $ENV{BUILD_PREFIX}/Library/mingw-w64/include
                     )
 link_directories(${CMAKE_BINARY_DIR}/Dependencies/${CMAKE_CFG_INTDIR}/lib
-                 ${BUILD_PREFIX}/Library/mingw-w64/bin
-                 ${BUILD_PREFIX}/Library/mingw-w64/lib
-                 ${BUILD_PREFIX}/Library/lib
+                 $ENV{BUILD_PREFIX}/Library/mingw-w64/bin
+                 $ENV{BUILD_PREFIX}/Library/mingw-w64/lib
+                 $ENV{BUILD_PREFIX}/Library/lib
                  )
 
 #

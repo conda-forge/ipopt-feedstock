@@ -23,9 +23,6 @@ cmake -G "MinGW Makefiles" ^
       -DCMAKE_SH="CMAKE_SH-NOTFOUND" ^
       -DIPOPT_HAS_MUMPS=1 ^
       -DCOIN_HAS_MUMPS=1 ^
-      -DCOIN_HAS_MUMPS_INCLUDE_PATH:PATH="%BUILD_PREFIX%\Library\mingw-w64\include\mumps_seq" ^
-      -DCOIN_HAS_MUMPS_LIBRARY_PATH="%BUILD_PREFIX%\Library\lib" ^
-      -DCOIN_THREADS_LIB_PATH="%BUILD_PREFIX%\Library\mingw-w64\bin;%BUILD_PREFIX%\Library\mingw-w64\lib;%BUILD_PREFIX%\Library\lib" ^
       -DCMAKE_CXX_STANDARD_LIBRARIES="-ldmumps -lmumps_common -llapack -lblas -lgfortran -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32" ^
       -DIPOPT_ENABLE_LINEARSOLVERLOADER=1 ^
       ..
