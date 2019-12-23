@@ -17,8 +17,8 @@ build:
 requirements:
   build:
     - {{ compiler('fortran') }}  # [not win]
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
+    - {{ compiler('c') }}  # [not win]
+    - {{ compiler('cxx') }}  # [not win]
     - cmake  # [win]
     - m2w64-toolchain  # [win]
     - mumps-seq
