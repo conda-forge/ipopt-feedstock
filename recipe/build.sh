@@ -8,6 +8,7 @@ mkdir build
 cd build
 
 ../configure \
+  FLIBS="-L$PREFIX/lib -L$BUILD_PREFIX/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.3.0 -L$BUILD_PREFIX/bin/../lib/gcc -L$BUILD_PREFIX/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.3.0/../../../../x86_64-conda_cos6-linux-gnu/lib/../lib -L$BUILD_PREFIX/bin/../x86_64-conda_cos6-linux-gnu/sysroot/lib/../lib -L$BUILD_PREFIX/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/../lib -L$BUILD_PREFIX/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.3.0/../../../../x86_64-conda_cos6-linux-gnu/lib -L$BUILD_PREFIX/bin/../x86_64-conda_cos6-linux-gnu/sysroot/lib -L$BUILD_PREFIX/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib -lrt -lgfortran -lm -lquadmath" \
   CFLAGS="-I$PREFIX/include -I$PREFIX/include/asl -I$PREFIX/include/mumps_seq" \
   CXXFLAGS=" -m64 -I$PREFIX/include -I$PREFIX/include/asl -I$PREFIX/include/mumps_seq" \
   --with-blas-lib="-Wl,-rpath,$PREFIX/lib -L$PREFIX/lib -llapack -lblas" \
