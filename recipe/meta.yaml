@@ -12,9 +12,13 @@ source:
     patches:
       - linux-configure.patch  # [linux]
 
+  # CMake-based build system for Windows
+  - folder: coinor-cmake  # [win]
+    url: https://github.com/traversaro/coinor-cmake/archive/daf0d0c4c2c55b3c0537cf2397400b9a246b61dc.zip  # [win]
+    sha256: 9c0d04c304cbaa430e5ef0aa9a4b4dd443b21149f380f0eade65bd40618c94fa  # [win]
+
 build:
-  skip: true  # [win]
-  number: 2
+  number: 3
   run_exports:
     - {{ pin_subpackage('ipopt', max_pin='x.x') }}
 
@@ -23,14 +27,15 @@ requirements:
     - {{ compiler('fortran') }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - wget
+    - cmake  # [win]
+    - wget  # [not win]
     - pkgconfig
   host:
     - libblas
     - liblapack
     - metis
     - mumps-seq
-    - ampl-mp
+    - ampl-mp  # [not win]
 
 test:
   files:
