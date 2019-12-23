@@ -32,7 +32,7 @@ cmake -G "MinGW Makefiles" ^
 if errorlevel 1 exit 1
 
 :: Build!
-mingw32-make -j8
+mingw32-make
 if errorlevel 1 exit 1
 
 :: Install!
