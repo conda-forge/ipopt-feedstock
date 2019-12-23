@@ -1,37 +1,45 @@
 {% set name = "Ipopt" %}
-{% set version = "3.12.12" %}
-{% set sha256 = "1283c0eb425dffedc0d6d4b7ac78c18c15f84d666f519e1689f6b989a4e98f50" %}
+{% set version = "3.12.13" %}
+{% set sha256 = "aac9bb4d8a257fdfacc54ff3f1cbfdf6e2d61fb0cf395749e3b0c0664d3e7e96" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: http://www.coin-or.org/download/pkgsource/{{ name }}/{{ name }}-{{ version }}.tgz
-  sha256: {{ sha256 }}
+  - url: http://www.coin-or.org/download/source/{{ name }}/{{ name }}-{{ version }}.tgz
+    fn: {{ name }}-{{ version }}.tar.gz
+    sha256: {{ sha256 }}
 
 build:
-  skip: True  # [win]
-  number: 1006
+  number: 1000
 
 requirements:
   build:
     - {{ compiler('fortran') }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-  host:
+    - cmake  # [win]
+    - m2w64-toolchain  # [win]
+    - mumps-seq
     - libblas
     - liblapack
-    - ampl-mp
+  host:
     - mumps-seq
-    - metis
-    - scotch
+    - libblas
+    - liblapack
+    - ampl-mp  # [not win]
+    - metis  # [not win]
+    - scotch  # [not win]
   run:
-    - ampl-mp
-    - mumps-seq
-    - metis
-    - scotch
+    - ampl-mp  # [not win]
+    - metis  # [not win]
+    - scotch  # [not win]
+    - m2w64-gcc-libs-core  # [win]
+    - m2w64-gcc-libs  # [win]
+    - mumps-seq  # [win]
+    - libblas  # [win]
+    - liblapack  # [win]
 
 test:
   files:
