@@ -20,6 +20,7 @@ cmake -G "MinGW Makefiles" ^
       -DCMAKE_INSTALL_PREFIX:PATH="%LIBRARY_PREFIX%\mingw-w64" ^
       -D "CMAKE_PREFIX_PATH=%LIBRARY_PREFIX%;%LIBRARY_PREFIX%\mingw-w64" ^
       -DCMAKE_BUILD_TYPE:STRING=Release ^
+      -DCMAKE_SH="CMAKE_SH-NOTFOUND" ^
       -DIPOPT_HAS_MUMPS=1 ^
       -DCOIN_HAS_MUMPS=1 ^
       -DCOIN_HAS_MUMPS_INCLUDE_PATH:PATH="%BUILD_PREFIX%\Library\mingw-w64\include\mumps_seq" ^
