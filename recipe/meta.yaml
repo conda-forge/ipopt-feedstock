@@ -26,8 +26,7 @@ requirements:
     - liblapack
   host:
     - mumps-seq
-    - libblas
-    - liblapack
+    - libblas  # [win]
     - ampl-mp  # [not win]
     - metis  # [not win]
     - scotch  # [not win]
@@ -39,7 +38,6 @@ requirements:
     - m2w64-gcc-libs  # [win]
     - mumps-seq  # [win]
     - libblas  # [win]
-    - liblapack  # [win]
 
 test:
   files:
