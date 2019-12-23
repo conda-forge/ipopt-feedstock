@@ -14,15 +14,8 @@ libblas:
 - 3.8 *netlib
 liblapack:
 - 3.8.0 *netlib
-metis:
-- '5.1'
 mumps_seq:
 - '5.2'
-pin_run_as_build:
-  metis:
-    max_pin: x.x
-scotch:
-- 6.0.8
 zip_keys:
 - - c_compiler
   - cxx_compiler
