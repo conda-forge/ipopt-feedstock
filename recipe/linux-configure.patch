@@ -1,0 +1,10 @@
+--- BuildTools/coin.m4
++++ BuildTools/coin.m4
+@@ -1160,6 +1160,7 @@ else
+         -lcrt*.o) ;;
+         -lcygwin) ;;
+         -lgcc*)   ;;
++        -lm\')    ;;
+                *) my_flibs="$my_flibs $flag" ;;
+       esac
+     done

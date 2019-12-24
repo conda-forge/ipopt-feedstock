@@ -10,6 +10,8 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: http://www.coin-or.org/download/source/{{ name }}/{{ name }}-{{ version }}.tgz
   sha256: {{ sha256 }}
+  patches:
+    - linux-configure.patch  # [linux]
 
 build:
   skip: True  # [win]
