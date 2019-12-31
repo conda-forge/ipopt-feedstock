@@ -1,0 +1,13 @@
+--- Ipopt/configure
++++ Ipopt/configure
+@@ -5308,6 +5308,8 @@ else
+   ac_cv_f77_libs="$FLIBS"
+ fi
+
++FLIBS=""
++
+ if test "x$orig_FLIBS" != "x$FLIBS" ; then
+   { echo "$as_me:$LINENO: Corrected Fortran libraries: $FLIBS" >&5
+ echo "$as_me: Corrected Fortran libraries: $FLIBS" >&6;}
+
+

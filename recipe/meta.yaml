@@ -1,6 +1,6 @@
 {% set name = "Ipopt" %}
-{% set version = "3.12.12" %}
-{% set sha256 = "1283c0eb425dffedc0d6d4b7ac78c18c15f84d666f519e1689f6b989a4e98f50" %}
+{% set version = "3.12.13" %}
+{% set sha256 = "aac9bb4d8a257fdfacc54ff3f1cbfdf6e2d61fb0cf395749e3b0c0664d3e7e96" %}
 
 package:
   name: {{ name|lower }}
@@ -8,12 +8,14 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: http://www.coin-or.org/download/pkgsource/{{ name }}/{{ name }}-{{ version }}.tgz
+  url: http://www.coin-or.org/download/source/{{ name }}/{{ name }}-{{ version }}.tgz
   sha256: {{ sha256 }}
+  patches:
+    - linux-configure.patch  # [linux]
 
 build:
   skip: True  # [win]
-  number: 1006
+  number: 0
 
 requirements:
   build:
