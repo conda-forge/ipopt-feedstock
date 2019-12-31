@@ -263,9 +263,8 @@ endif ()
 if (COIN_COMPILE_LTO)
   set_target_properties(libipopt PROPERTIES INTERPROCEDURAL_OPTIMIZATION true)
 endif ()
-if (NOT WIN32)
-  set_target_properties(libipopt PROPERTIES PREFIX "")
-endif ()
+
+set_target_properties(libipopt PROPERTIES PREFIX "")
 set_include_directories(libipopt)
 
 if (IPOPT_HAS_AMPL)
