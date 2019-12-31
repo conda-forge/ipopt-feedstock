@@ -1,9 +1,5 @@
 setlocal EnableDelayedExpansion
 
-rem xcopy /E cmake_data\* pkg_source\
-
-rem cd pkg_source
-
 copy %RECIPE_DIR%\CMakeLists_root.txt CMakeLists.txt
 copy %RECIPE_DIR%\CMakeLists_Ipopt.txt Ipopt\CMakeLists.txt
 mkdir Ipopt\include
