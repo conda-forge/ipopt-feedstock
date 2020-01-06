@@ -4,7 +4,7 @@
    ac_cv_f77_libs="$FLIBS"
  fi
 
-+FLIBS=`echo ${FLIBS#-lm'}`
++FLIBS=""
 +
  if test "x$orig_FLIBS" != "x$FLIBS" ; then
    { echo "$as_me:$LINENO: Corrected Fortran libraries: $FLIBS" >&5
