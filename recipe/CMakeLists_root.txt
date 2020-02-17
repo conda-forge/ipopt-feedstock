@@ -554,18 +554,6 @@ check_function_exists(vsnprintf  HAVE_VSNPRINTF)
 check_function_exists(_snprintf  HAVE__SNPRINTF)
 check_function_exists(_vsnprintf HAVE__VSNPRINTF)
 
-if (WIN32)
-  # snprintf not correctly detected under Visual Studio.
-  # Hack: we just activate snprintf under Windows. 
-  # TO BE FIXED
-  set(HAVE_STDIO_H    1)
-  set(HAVE_SNPRINTF   1)
-  set(HAVE__SNPRINTF  1)
-  set(HAVE_VSNPRINTF  1)
-  set(HAVE__VSNPRINTF 1)
-  set(HAVE_VA_COPY    1)
-endif ()
-
 if (COIN_USE_FAST_CODE)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fomit-frame-pointer ")
   set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} -fomit-frame-pointer ")
@@ -594,12 +582,11 @@ endif ()
 
 include_directories(${CMAKE_BINARY_DIR}/Dependencies/${CMAKE_CFG_INTDIR}/include
                     ${CMAKE_BINARY_DIR}/Dependencies/${CMAKE_CFG_INTDIR}/include/ampl
-                    $ENV{BUILD_PREFIX}/Library/mingw-w64/include/mumps_seq
-                    $ENV{BUILD_PREFIX}/Library/mingw-w64/include
+                    $ENV{BUILD_PREFIX}/Library/include/mumps_seq
+                    $ENV{BUILD_PREFIX}/Library/include
                     )
 link_directories(${CMAKE_BINARY_DIR}/Dependencies/${CMAKE_CFG_INTDIR}/lib
-                 $ENV{BUILD_PREFIX}/Library/mingw-w64/bin
-                 $ENV{BUILD_PREFIX}/Library/mingw-w64/lib
+                 $ENV{BUILD_PREFIX}/Library/bin
                  $ENV{BUILD_PREFIX}/Library/lib
                  )
 

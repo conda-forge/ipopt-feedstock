@@ -18,17 +18,17 @@ build:
 
 requirements:
   build:
-    - {{ compiler('fortran') }}  # [not win]
-    - {{ compiler('c') }}  # [not win]
-    - {{ compiler('cxx') }}  # [not win]
+    - {{ compiler('fortran') }}
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     - cmake  # [win]
-    - m2w64-toolchain  # [win]
     - mumps-seq
     - libblas
     - liblapack
   host:
     - mumps-seq
     - libblas  # [win]
+    - liblapack  # [win]
     - ampl-mp  # [not win]
     - metis  # [not win]
     - scotch  # [not win]
@@ -36,8 +36,6 @@ requirements:
     - ampl-mp  # [not win]
     - metis  # [not win]
     - scotch  # [not win]
-    - m2w64-gcc-libs-core  # [win]
-    - m2w64-gcc-libs  # [win]
     - mumps-seq  # [win]
     - libblas  # [win]
 
