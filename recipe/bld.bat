@@ -9,6 +9,10 @@ xcopy /E %RECIPE_DIR%\cmake\* cmake\
 mkdir build
 cd build
 
+REM This is a fix for a CMake bug where it crashes because of the "/GL" flag
+REM See: https://gitlab.kitware.com/cmake/cmake/issues/16282
+set CXXFLAGS=%CXXFLAGS:-GL=%
+set CFLAGS=%CFLAGS:-GL=%
 
 :: Configure using the CMakeFiles
 cmake -G "NMake Makefiles" ^
@@ -17,9 +21,6 @@ cmake -G "NMake Makefiles" ^
       -DCMAKE_BUILD_TYPE:STRING=Release ^
       -DIPOPT_BUILD_EXAMPLES=1 ^
       -DIPOPT_HAS_MUMPS=1 ^
-      -DCMAKE_C_COMPILER=clang-cl ^
-      -DCMAKE_CXX_COMPILER=clang-cl ^
-      -DCMAKE_Fortran_COMPILER=flang ^
       -DHAVE_RAND=1 ^
       -DIPOPT_ENABLE_LINEARSOLVERLOADER=1 ^
       ..
