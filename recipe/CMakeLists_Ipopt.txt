@@ -1,29 +1,7 @@
-get_ac_init_version(${CMAKE_CURRENT_SOURCE_DIR}/../configure.ac IPOPT)
-
 set(IPOPT_VERSION_MAJOR   "${IPOPT_MAJOR_VERSION}"  CACHE STRING "The IpOpt major version number")
 set(IPOPT_VERSION_MINOR   "${IPOPT_MINOR_VERSION}"  CACHE STRING "The IpOpt minor version number")
 set(IPOPT_VERSION_RELEASE "${IPOPT_PATCH_VERSION}"  CACHE STRING "The IpOpt patch version number")
 set(IPOPT_VERSION         "${IPOPT_VERSION_STRING}" CACHE STRING "The IpOpt version")
-
-set(IPOPT_WC_REVISION "0")
-if (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/../.svn")
-  find_package(Subversion)
-  if (Subversion_FOUND)
-    Subversion_WC_INFO(${CMAKE_CURRENT_SOURCE_DIR}/.. IPOPT)
-  endif ()
-endif ()
-
-if (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/../.git")
-  find_package(Git)
-  if (Git_FOUND)
-    include(export_git)
-    GIT_WC_INFO(${CMAKE_CURRENT_SOURCE_DIR}/.. IPOPT)
-    set(IPOPT_WC_REVISION "${IPOPT_WC_SVNEQUIV}") # alphanumeric rev not yet managed
-  endif ()
-endif ()
-
-message(STATUS "Current IPOPT revision is ${IPOPT_WC_REVISION}")
-set(IPOPT_SVN_REV "${IPOPT_WC_REVISION}" CACHE STRING "The IPOPT subversion revision" FORCE)
 
 mark_as_advanced(IPOPT_VERSION_MAJOR
                  IPOPT_VERSION_MINOR
