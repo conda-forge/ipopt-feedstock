@@ -24,16 +24,15 @@ requirements:
     - {{ compiler('fortran') }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - wget
   host:
     - libblas
     - liblapack
     - ampl-mp
-    - mumps-seq
     - metis
     - scotch
   run:
     - ampl-mp
-    - mumps-seq
     - metis
     - scotch
 
