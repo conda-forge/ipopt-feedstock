@@ -1,0 +1,13 @@
+diff --git a/configure b/configure
+index bc3ffaa..e8775ae 100755
+--- a/configure
++++ b/configure
+@@ -4201,7 +4201,7 @@ else
+   esac
+   ac_cv_f77_libs="$FLIBS"
+ fi
+-
++FLIBS=""
+ if test "x$orig_FLIBS" != "x$FLIBS" ; then
+   { echo "$as_me:$LINENO: Corrected Fortran libraries: $FLIBS" >&5
+ echo "$as_me: Corrected Fortran libraries: $FLIBS" >&6;}
