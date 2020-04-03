@@ -25,6 +25,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - wget
+    - pkgconfig
   host:
     - libblas
     - liblapack
