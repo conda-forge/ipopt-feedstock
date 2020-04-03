@@ -29,11 +29,7 @@ requirements:
   host:
     - libblas
     - liblapack
-    - metis
-    - scotch
   run:
-    - metis
-    - scotch
 
 test:
   files:
