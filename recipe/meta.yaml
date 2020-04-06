@@ -1,6 +1,6 @@
 {% set name = "Ipopt" %}
-{% set version = "3.12.13" %}
-{% set sha256 = "aac9bb4d8a257fdfacc54ff3f1cbfdf6e2d61fb0cf395749e3b0c0664d3e7e96" %}
+{% set version = "3.13.0" %}
+{% set sha256 = "dc392396be28c4a0d49bfab399320cb3f70db5b8f090028a883d826a47744ecf" %}
 
 package:
   name: {{ name|lower }}
@@ -15,7 +15,7 @@ source:
 
 build:
   skip: True  # [win]
-  number: 1
+  number: 0
   run_exports:
     - {{ pin_subpackage('ipopt', max_pin='x.x') }}
 
@@ -24,18 +24,12 @@ requirements:
     - {{ compiler('fortran') }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - wget
+    - pkgconfig
   host:
     - libblas
     - liblapack
-    - ampl-mp
-    - mumps-seq
-    - metis
-    - scotch
   run:
-    - ampl-mp
-    - mumps-seq
-    - metis
-    - scotch
 
 test:
   files:
@@ -49,7 +43,7 @@ test:
 
 about:
   home: https://projects.coin-or.org/Ipopt/
-  license: EPL 1.0
+  license: EPL-1.0
   license_file: LICENSE
   summary: Software package for large-scale nonlinear optimization
 

@@ -3,7 +3,7 @@ About ipopt
 
 Home: https://projects.coin-or.org/Ipopt/
 
-Package license: EPL 1.0
+Package license: EPL-1.0
 
 Feedstock license: BSD 3-Clause
 
