@@ -1,17 +1,30 @@
 {% set name = "Ipopt" %}
 {% set version = "3.13.0" %}
-{% set sha256 = "dc392396be28c4a0d49bfab399320cb3f70db5b8f090028a883d826a47744ecf" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: http://www.coin-or.org/download/source/{{ name }}/{{ name }}-{{ version }}.tgz
-  sha256: {{ sha256 }}
-  patches:
-    - linux-configure.patch  # [linux]
+  - folder: Ipopt
+    url: http://www.coin-or.org/download/source/{{ name }}/{{ name }}-{{ version }}.tgz
+    sha256: dc392396be28c4a0d49bfab399320cb3f70db5b8f090028a883d826a47744ecf
+    patches:
+      - linux-configure.patch  # [linux]
+
+  - folder: ASL
+    url: https://github.com/coin-or-tools/ThirdParty-ASL/archive/releases/1.4.3.tar.gz
+    sha256: 0a4cfa7c6c5df72d8e1c4c3ce74633421f807115a679e85cb5569c41df9a9aaf
+
+  - folder: Metis
+    url: https://github.com/coin-or-tools/ThirdParty-Metis/archive/releases/1.3.9.tar.gz
+    sha256: c75e66ec76b423e4c8c1ead3579fb2aa5fb7844f4efffdeae5b185df80420e3a
+
+  - folder: Mumps
+    url: https://github.com/coin-or-tools/ThirdParty-Mumps/archive/releases/1.6.2.tar.gz
+    sha256: 0cfdd30b9cb42d9539ad9c495629f56dd1fc0b59cea691bbe71a129fabd8895d
+    patches:
+      - thirdparty-mumps-linux-configure.patch  # [linux]
 
 build:
   skip: True  # [win]
@@ -44,7 +57,7 @@ test:
 about:
   home: https://projects.coin-or.org/Ipopt/
   license: EPL-1.0
-  license_file: LICENSE
+  license_file: Ipopt/LICENSE
   summary: Software package for large-scale nonlinear optimization
 
 extra:
