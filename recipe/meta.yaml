@@ -1,5 +1,5 @@
 {% set name = "Ipopt" %}
-{% set version = "3.13.0" %}
+{% set version = "3.13.1" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 source:
   - folder: Ipopt
     url: http://www.coin-or.org/download/source/{{ name }}/{{ name }}-{{ version }}.tgz
-    sha256: dc392396be28c4a0d49bfab399320cb3f70db5b8f090028a883d826a47744ecf
+    sha256: 64fc63a3fe27cf5efaf17ebee861f7db5bf70aacf9c316c0d37e4beb4eb72e11
     patches:
       - linux-configure.patch  # [linux]
 
@@ -27,7 +27,7 @@ source:
       - thirdparty-mumps-linux-configure.patch  # [linux]
 
 build:
-  skip: True  # [win]
+  skip: true  # [win]
   number: 0
   run_exports:
     - {{ pin_subpackage('ipopt', max_pin='x.x') }}
