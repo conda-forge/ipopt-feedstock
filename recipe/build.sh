@@ -25,4 +25,6 @@ make test
 make install
 
 # for backward compatibility
-cp -r ${PREFIX}/include/coin-or ${PREFIX}/include/coin
+install -d ${PREFIX}/include/coin
+install -m644 ${PREFIX}/include/coin-or/* ${PREFIX}/include/coin
+

@@ -28,7 +28,7 @@ source:
 
 build:
   skip: True  # [win]
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage('ipopt', max_pin='x.x') }}
 
@@ -64,3 +64,4 @@ extra:
   recipe-maintainers:
     - pstjohn
     - bluescarni
+    - jschueller
