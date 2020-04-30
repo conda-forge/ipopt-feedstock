@@ -1,5 +1,5 @@
 {% set name = "Ipopt" %}
-{% set version = "3.13.1" %}
+{% set version = "3.13.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,18 +7,14 @@ package:
 
 source:
   - folder: Ipopt
-    url: http://www.coin-or.org/download/source/{{ name }}/{{ name }}-{{ version }}.tgz
-    sha256: 64fc63a3fe27cf5efaf17ebee861f7db5bf70aacf9c316c0d37e4beb4eb72e11
+    url: https://github.com/coin-or/Ipopt/archive/releases/{{ version }}.tar.gz
+    sha256: 891ab9e9c7db29fc8ac5c779ccec6313301098de7bbf735ca230cd5544c49496
     patches:
       - linux-configure.patch  # [linux]
 
   - folder: ASL
     url: https://github.com/coin-or-tools/ThirdParty-ASL/archive/releases/1.4.3.tar.gz
     sha256: 0a4cfa7c6c5df72d8e1c4c3ce74633421f807115a679e85cb5569c41df9a9aaf
-
-  - folder: Metis
-    url: https://github.com/coin-or-tools/ThirdParty-Metis/archive/releases/1.3.9.tar.gz
-    sha256: c75e66ec76b423e4c8c1ead3579fb2aa5fb7844f4efffdeae5b185df80420e3a
 
   - folder: Mumps
     url: https://github.com/coin-or-tools/ThirdParty-Mumps/archive/releases/1.6.2.tar.gz
@@ -42,6 +38,7 @@ requirements:
   host:
     - libblas
     - liblapack
+    - metis
   run:
 
 test:

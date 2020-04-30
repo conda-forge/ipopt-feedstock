@@ -3,8 +3,6 @@
 # ipopt looks only for its own ASL & Mumps now
 cd ASL && ./get.ASL && ./configure --prefix=${PREFIX} && make -j${CPU_COUNT} && make install && cd -
 
-cd Metis && ./get.Metis && ./configure --prefix=${PREFIX} && make -j${CPU_COUNT} && make install && cd -
-
 cd Mumps && ./get.Mumps && ./configure --prefix=${PREFIX} && make -j${CPU_COUNT} && make install && cd -
 
 cd Ipopt
