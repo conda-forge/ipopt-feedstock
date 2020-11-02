@@ -13,8 +13,12 @@ mkdir build
 cd build
 
 ../configure \
-  --without-hsl --disable-java \
-  --prefix=$PREFIX
+  --without-hsl \
+  --disable-java \
+  --with-asl \
+  --with-asl-cflags="-I${PREFIX}/include/asl" \
+  --with-asl-lflags="-L${PREFIX}/lib -lasl" \
+  --prefix=${PREFIX}
 
 make -j${CPU_COUNT}
 make test
