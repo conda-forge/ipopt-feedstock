@@ -156,5 +156,6 @@ Feedstock Maintainers
 
 * [@bluescarni](https://github.com/bluescarni/)
 * [@jschueller](https://github.com/jschueller/)
+* [@moorepants](https://github.com/moorepants/)
 * [@pstjohn](https://github.com/pstjohn/)
 
