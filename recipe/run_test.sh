@@ -1,8 +1,5 @@
 #!/bin/bash -e
 
-# Test the ipopt binary
-ipopt mytoy.nl | grep -q "Optimal Solution"
-
 # Test linking against the ipopt library
 cd test
 
