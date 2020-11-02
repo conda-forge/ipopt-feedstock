@@ -18,7 +18,7 @@ source:
 
 build:
   skip: true  # [win]
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage('ipopt', max_pin='x.x') }}
 
