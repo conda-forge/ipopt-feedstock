@@ -14,7 +14,7 @@ cd build
   --disable-java \
   --with-mumps \
   --with-mumps-cflags="-I${PREFIX}/include/mumps_seq" \
-  --with-mumps-lflags="-L${PREFIX}/lib -ldmumps_seq -lmumps_common_seq -lpord_seq -lmpiseq_seq -lesmumps -lscotch -lscotcherr -lmetis -lgfortran"
+  --with-mumps-lflags="-L${PREFIX}/lib -ldmumps_seq -lmumps_common_seq -lpord_seq -lmpiseq_seq -lesmumps -lscotch -lscotcherr -lmetis -lgfortran" \
   --with-asl \
   --with-asl-cflags="-I${PREFIX}/include/asl" \
   --with-asl-lflags="-L${PREFIX}/lib -lasl" \
