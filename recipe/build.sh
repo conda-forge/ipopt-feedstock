@@ -17,7 +17,7 @@ cd build
   --prefix=$PREFIX
 
 make -j${CPU_COUNT}
-make test
+#make test
 make install
 
 # for backward compatibility
