@@ -1,9 +1,7 @@
 #!/bin/bash
 
-# ipopt looks only for its own ASL & Mumps now
+# ipopt looks only for its own ASL
 cd ASL && ./get.ASL && ./configure --prefix=${PREFIX} && make -j${CPU_COUNT} && make install && cd -
-
-cd Mumps && ./get.Mumps && ./configure --prefix=${PREFIX} && make -j${CPU_COUNT} && make install && cd -
 
 cd Ipopt
 

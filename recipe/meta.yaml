@@ -16,12 +16,6 @@ source:
     url: https://github.com/coin-or-tools/ThirdParty-ASL/archive/releases/1.4.3.tar.gz
     sha256: 0a4cfa7c6c5df72d8e1c4c3ce74633421f807115a679e85cb5569c41df9a9aaf
 
-  - folder: Mumps
-    url: https://github.com/coin-or-tools/ThirdParty-Mumps/archive/releases/1.6.2.tar.gz
-    sha256: 0cfdd30b9cb42d9539ad9c495629f56dd1fc0b59cea691bbe71a129fabd8895d
-    patches:
-      - thirdparty-mumps-linux-configure.patch  # [linux]
-
 build:
   skip: true  # [win]
   number: 0
@@ -39,6 +33,7 @@ requirements:
     - libblas
     - liblapack
     - metis
+    - mumps-seq
   run:
 
 test:
