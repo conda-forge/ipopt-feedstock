@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# ipopt looks only for its own ASL
-cd ASL && ./get.ASL && ./configure --prefix=${PREFIX} && make -j${CPU_COUNT} && make install && cd -
-
 cd Ipopt
 
 if [ "$(uname)" == "Linux" ]; then
@@ -15,10 +12,13 @@ cd build
 ../configure \
   --without-hsl \
   --disable-java \
-  --prefix=$PREFIX \
   --with-mumps \
   --with-mumps-cflags="-I${PREFIX}/include/mumps_seq" \
   --with-mumps-lflags="-L${PREFIX}/lib -ldmumps_seq -lmumps_common_seq -lpord_seq -lmpiseq_seq -lesmumps -lscotch -lscotcherr -lmetis -lgfortran"
+  --with-asl \
+  --with-asl-cflags="-I${PREFIX}/include/asl" \
+  --with-asl-lflags="-L${PREFIX}/lib -lasl" \
+  --prefix=${PREFIX}
 
 make -j${CPU_COUNT}
 make test

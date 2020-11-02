@@ -12,13 +12,9 @@ source:
     patches:
       - linux-configure.patch  # [linux]
 
-  - folder: ASL
-    url: https://github.com/coin-or-tools/ThirdParty-ASL/archive/releases/1.4.3.tar.gz
-    sha256: 0a4cfa7c6c5df72d8e1c4c3ce74633421f807115a679e85cb5569c41df9a9aaf
-
 build:
   skip: true  # [win]
-  number: 1
+  number: 2
   run_exports:
     - {{ pin_subpackage('ipopt', max_pin='x.x') }}
 
@@ -34,6 +30,7 @@ requirements:
     - liblapack
     - metis
     - mumps-seq
+    - ampl-mp
 
 test:
   files:
@@ -56,3 +53,4 @@ extra:
     - pstjohn
     - bluescarni
     - jschueller
+    - moorepants
