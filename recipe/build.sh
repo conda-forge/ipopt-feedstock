@@ -13,11 +13,15 @@ mkdir build
 cd build
 
 ../configure \
-  --without-hsl --disable-java \
-  --prefix=$PREFIX
+  --without-hsl \
+  --disable-java \
+  --prefix=$PREFIX \
+  --with-mumps \
+  --with-mumps-cflags="-I${PREFIX}/include/mumps_seq" \
+  --with-mumps-lflags="-L${PREFIX}/lib -lmumps"
 
 make -j${CPU_COUNT}
-#make test
+make test
 make install
 
 # for backward compatibility
