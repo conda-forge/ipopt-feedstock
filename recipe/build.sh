@@ -18,7 +18,7 @@ cd build
   --prefix=$PREFIX \
   --with-mumps \
   --with-mumps-cflags="-I${PREFIX}/include/mumps_seq" \
-  --with-mumps-lflags="-L${PREFIX}/lib -lmumps"
+  --with-mumps-lflags="-L${PREFIX}/lib -ldmumps_seq -lmumps_common_seq -lpord_seq -lmpiseq_seq -lesmumps -lscotch -lscotcherr -lmetis -lgfortran"
 
 make -j${CPU_COUNT}
 make test
