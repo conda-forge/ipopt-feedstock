@@ -36,8 +36,6 @@ requirements:
     - liblapack
     - metis
     - ampl-mp
-  run:
-    - ampl-mp
 
 test:
   files:
