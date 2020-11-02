@@ -33,10 +33,10 @@ requirements:
     - libblas
     - liblapack
     - metis
-    - mumps-seq
+    - mumps-seq <5.0
   run:
     - metis
-    - mumps-seq
+    - mumps-seq <5.0
 
 test:
   files:
