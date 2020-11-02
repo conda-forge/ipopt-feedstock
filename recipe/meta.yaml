@@ -35,6 +35,8 @@ requirements:
     - metis
     - mumps-seq
   run:
+    - metis
+    - mumps-seq
 
 test:
   files:
