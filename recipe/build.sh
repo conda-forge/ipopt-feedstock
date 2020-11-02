@@ -1,8 +1,6 @@
 #!/bin/bash
 
-# ipopt looks only for its own ASL & Mumps now
-cd ASL && ./get.ASL && ./configure --prefix=${PREFIX} && make -j${CPU_COUNT} && make install && cd -
-
+# ipopt looks only for its own Mumps now
 cd Mumps && ./get.Mumps && ./configure --prefix=${PREFIX} && make -j${CPU_COUNT} && make install && cd -
 
 cd Ipopt
@@ -15,8 +13,12 @@ mkdir build
 cd build
 
 ../configure \
-  --without-hsl --disable-java \
-  --prefix=$PREFIX
+  --without-hsl \
+  --disable-java \
+  --with-asl \
+  --with-asl-cflags="-I${PREFIX}/include/asl" \
+  --with-asl-lflags="-L${PREFIX}/lib -lasl" \
+  --prefix=${PREFIX}
 
 make -j${CPU_COUNT}
 make test
