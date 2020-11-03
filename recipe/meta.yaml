@@ -12,15 +12,9 @@ source:
     patches:
       - linux-configure.patch  # [linux]
 
-  - folder: Mumps
-    url: https://github.com/coin-or-tools/ThirdParty-Mumps/archive/releases/1.6.2.tar.gz
-    sha256: 0cfdd30b9cb42d9539ad9c495629f56dd1fc0b59cea691bbe71a129fabd8895d
-    patches:
-      - thirdparty-mumps-linux-configure.patch  # [linux]
-
 build:
   skip: true  # [win]
-  number: 1
+  number: 2
   run_exports:
     - {{ pin_subpackage('ipopt', max_pin='x.x') }}
 
@@ -35,6 +29,7 @@ requirements:
     - libblas
     - liblapack
     - metis
+    - mumps-seq
     - ampl-mp
 
 test:
@@ -58,3 +53,4 @@ extra:
     - pstjohn
     - bluescarni
     - jschueller
+    - moorepants

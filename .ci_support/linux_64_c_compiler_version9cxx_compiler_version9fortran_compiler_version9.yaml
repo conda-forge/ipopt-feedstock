@@ -24,6 +24,8 @@ liblapack:
 - 3.8 *netlib
 metis:
 - '5.1'
+mumps_seq:
+- '5.2'
 pin_run_as_build:
   metis:
     max_pin: x.x
