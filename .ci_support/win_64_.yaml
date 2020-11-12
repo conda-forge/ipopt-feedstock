@@ -1,23 +1,15 @@
 c_compiler:
-- gcc
-c_compiler_version:
-- '9'
-cdt_name:
-- cos6
+- vs2017
 channel_sources:
 - conda-forge,defaults
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- gxx
-cxx_compiler_version:
-- '9'
-docker_image:
-- quay.io/condaforge/linux-anvil-comp7
+- vs2017
 fortran_compiler:
-- gfortran
+- flang
 fortran_compiler_version:
-- '9'
+- '5'
 libblas:
 - 3.8 *netlib
 liblapack:
@@ -30,8 +22,4 @@ pin_run_as_build:
   metis:
     max_pin: x.x
 target_platform:
-- linux-64
-zip_keys:
-- - c_compiler_version
-  - cxx_compiler_version
-  - fortran_compiler_version
+- win-64
