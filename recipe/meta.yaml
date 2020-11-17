@@ -18,7 +18,7 @@ source:
     sha256: 9c0d04c304cbaa430e5ef0aa9a4b4dd443b21149f380f0eade65bd40618c94fa  # [win]
 
 build:
-  number: 3
+  number: 4
   run_exports:
     - {{ pin_subpackage('ipopt', max_pin='x.x') }}
 
