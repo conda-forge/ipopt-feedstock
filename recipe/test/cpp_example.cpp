@@ -8,6 +8,8 @@
 
 #include "IpIpoptApplication.hpp"
 #include "IpSolveStatistics.hpp"
+#include "IpUtils.hpp"
+
 #include "MyNLP.hpp"
 
 #include <iostream>
@@ -16,6 +18,12 @@ using namespace Ipopt;
 
 int main(int argv, char* argc[])
 {
+  // Regression test for https://github.com/conda-forge/ipopt-feedstock/issues/57
+  if (!Ipopt::IsFiniteNumber(0.0)) {
+    std::cout << std::endl << std::endl << "*** Error detected in Ipopt::IsFiniteNumber!" << std::endl;
+    return 1;
+  }
+  
   // Create an instance of your nlp...
   SmartPtr<TNLP> mynlp = new MyNLP();
 
