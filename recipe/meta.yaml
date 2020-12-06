@@ -14,11 +14,11 @@ source:
 
   # CMake-based build system for Windows
   - folder: coinor-cmake  # [win]
-    url: https://github.com/traversaro/coinor-cmake/archive/daf0d0c4c2c55b3c0537cf2397400b9a246b61dc.zip  # [win]
+    url: https://github.com/traversaro/coinor-cmake/archive/2cabf53c332430b603af51b34122bc4d26d55ae1.zip  # [win]
     sha256: 9c0d04c304cbaa430e5ef0aa9a4b4dd443b21149f380f0eade65bd40618c94fa  # [win]
 
 build:
-  number: 4
+  number: 5
   run_exports:
     - {{ pin_subpackage('ipopt', max_pin='x.x') }}
 
