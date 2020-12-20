@@ -6,19 +6,13 @@ package:
   version: {{ version }}
 
 source:
-  - folder: Ipopt
-    url: https://github.com/coin-or/Ipopt/archive/releases/{{ version }}.tar.gz
+  - url: https://github.com/coin-or/Ipopt/archive/releases/{{ version }}.tar.gz
     sha256: 86354b36c691e6cd6b8049218519923ab0ce8a6f0a432c2c0de605191f2d4a1c
     patches:
       - linux-configure.patch  # [linux]
 
-  # CMake-based build system for Windows
-  - folder: coinor-cmake  # [win]
-    url: https://github.com/traversaro/coinor-cmake/archive/2cabf53c332430b603af51b34122bc4d26d55ae1.zip  # [win]
-    sha256: 795e573fdd90bd467e86c2aad2862afe9ae020905f0cb58419711ed44159d90d  # [win]
-
 build:
-  number: 5
+  number: 6
   run_exports:
     - {{ pin_subpackage('ipopt', max_pin='x.x') }}
 
