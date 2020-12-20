@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd Ipopt
+cd $SRC_DIR
 
 export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib -Wl,-rpath,${PREFIX}/lib"
 if [ "$(uname)" == "Linux" ]; then
