@@ -259,10 +259,6 @@ macro(set_include_directories TARGET)
   target_include_directories(${TARGET} BEFORE PRIVATE ${CMAKE_BINARY_DIR}/Ipopt/include)
 endmacro ()
 
-if (EXISTS ${Ipopt_DIR}/ThirdParty/HSL)
-  include_directories(${Ipopt_DIR}/ThirdParty/HSL)
-endif ()
-
 include_directories(${Ipopt_DIR}/src/Algorithm)
 include_directories(${Ipopt_DIR}/src/Algorithm/LinearSolvers)
 include_directories(${Ipopt_DIR}/src/Algorithm/Inexact)
