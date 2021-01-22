@@ -1,9 +1,9 @@
 setlocal EnableDelayedExpansion
 
 :: Copy CMake files to the source directory
-xcopy /E coinor-cmake\Ipopt Ipopt
+xcopy /E %RECIPE_DIR%\cmake %SRC_DIR%
 
-cd Ipopt
+cd %SRC_DIR%
 mkdir build
 cd build
 
