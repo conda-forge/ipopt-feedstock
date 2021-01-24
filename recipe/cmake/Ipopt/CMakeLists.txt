@@ -67,7 +67,7 @@ set(libdir         "${Ipopt_DIR}")
 set(abs_source_dir "${CMAKE_BINARY_DIR}/bin")
 
 install(FILES ${CMAKE_BINARY_DIR}/Ipopt/ipopt.pc
-        DESTINATION ${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}/pkg-config/)
+        DESTINATION ${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}/pkgconfig/)
 
 #
 # Build
