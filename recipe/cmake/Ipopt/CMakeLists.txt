@@ -61,7 +61,7 @@ if (COIN_ENABLE_DOWNLOAD_CLAPACK)
 endif ()
 set(PACKAGE_VERSION "${IPOPT_VERSION}")
 
-configure_file(${Ipopt_DIR}/ipopt.pc.in ${CMAKE_BINARY_DIR}/Ipopt/ipopt.pc @ONLY)
+configure_file(${CMAKE_CURRENT_LIST_DIR}/ipopt_cmake.pc.in ${CMAKE_BINARY_DIR}/Ipopt/ipopt.pc @ONLY)
 
 set(libdir         "${Ipopt_DIR}")
 set(abs_source_dir "${CMAKE_BINARY_DIR}/bin")
