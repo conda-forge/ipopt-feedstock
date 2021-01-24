@@ -1,6 +1,6 @@
 setlocal EnableDelayedExpansion
 
-:: Validate .pc file
+:: Check .pc file
 pkg-config --exists --debug ipopt
 if errorlevel 1 exit 1
 
