@@ -40,6 +40,7 @@ test:
     - {{ compiler('fortran') }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - pkgconfig
 
 about:
   home: https://projects.coin-or.org/Ipopt/
