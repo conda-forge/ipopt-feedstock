@@ -10,12 +10,12 @@ source:
     sha256: 86354b36c691e6cd6b8049218519923ab0ce8a6f0a432c2c0de605191f2d4a1c
     patches:
       - linux-configure.patch  # [linux]
+      - pkg-config-do-not-add-requires-private.patch
 
 build:
   number: 7
   run_exports:
     - {{ pin_subpackage('ipopt', max_pin='x.x') }}
-    -  pkg-config-do-not-add-requires-private.patch
 
 requirements:
   build:
