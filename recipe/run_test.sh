@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
-# Validate .pc file
-pkg-config --validate --debug ipopt
+# Check .pc file
+pkg-config --exists --debug ipopt
 
 # Test the ipopt binary
 ipopt mytoy.nl | grep -q "Optimal Solution"
