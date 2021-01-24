@@ -1,5 +1,8 @@
 setlocal EnableDelayedExpansion
 
+:: Validate .pc file
+pkg-config --validate --debug ipopt
+
 cd test
 
 :: Compile example that links ipopt
