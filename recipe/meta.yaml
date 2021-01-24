@@ -12,9 +12,10 @@ source:
       - linux-configure.patch  # [linux]
 
 build:
-  number: 6
+  number: 7
   run_exports:
     - {{ pin_subpackage('ipopt', max_pin='x.x') }}
+    -  pkg-config-do-not-add-requires-private.patch
 
 requirements:
   build:
