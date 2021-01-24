@@ -4,6 +4,9 @@ setlocal EnableDelayedExpansion
 pkg-config --exists --debug ipopt
 if errorlevel 1 exit 1
 
+pkg-config --validate --debug ipopt
+if errorlevel 1 exit 1
+
 cd test
 
 :: Compile example that links ipopt
