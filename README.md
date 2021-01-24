@@ -151,4 +151,5 @@ Feedstock Maintainers
 * [@jschueller](https://github.com/jschueller/)
 * [@moorepants](https://github.com/moorepants/)
 * [@pstjohn](https://github.com/pstjohn/)
+* [@traversaro](https://github.com/traversaro/)
 
