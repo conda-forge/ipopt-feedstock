@@ -1,10 +1,10 @@
 setlocal EnableDelayedExpansion
 
 :: Check .pc file
-pkg-config --exists --debug ipopt
+pkg-config --exists --print-errors --debug ipopt
 if errorlevel 1 exit 1
 
-pkg-config --validate --debug ipopt
+pkg-config --validate --print-errors --debug ipopt
 if errorlevel 1 exit 1
 
 cd test
