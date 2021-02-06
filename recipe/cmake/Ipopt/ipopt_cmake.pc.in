@@ -8,4 +8,4 @@ Description: Interior Point Optimizer
 URL: @PACKAGE_URL@
 Version: @PACKAGE_VERSION@
 Cflags: -I${includedir}
-Libs: -L${libdir} -lipopt
+Libs: -L${libdir} -l@IPOPT_OUTPUT_NAME@
