@@ -60,6 +60,7 @@ if (COIN_ENABLE_DOWNLOAD_CLAPACK)
   set(IPOPTLIB_PCFILES "${IPOPTLIB_PCFILES} -lf2c")
 endif ()
 set(PACKAGE_VERSION "${IPOPT_VERSION}")
+set(IPOPT_OUTPUT_NAME "ipopt-3")
 
 configure_file(${CMAKE_CURRENT_LIST_DIR}/ipopt_cmake.pc.in ${CMAKE_BINARY_DIR}/Ipopt/ipopt.pc @ONLY)
 
@@ -298,7 +299,7 @@ else ()
   add_library(libipopt STATIC ${IPOPT_SRC_LIST})
 endif ()
 set_target_properties(libipopt PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS ON)
-set_target_properties(libipopt PROPERTIES OUTPUT_NAME "ipopt-3")
+set_target_properties(libipopt PROPERTIES OUTPUT_NAME ${IPOPT_OUTPUT_NAME})
 
 if (COIN_COMPILE_LTO)
   set_target_properties(libipopt PROPERTIES INTERPROCEDURAL_OPTIMIZATION true)
