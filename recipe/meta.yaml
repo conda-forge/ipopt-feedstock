@@ -10,7 +10,7 @@ source:
     sha256: 9bed72a5456ef37f1b95746c932986e6664eb70b983d4fab61cf8aa811facdf1
     patches:
       - linux-configure.patch  # [linux]
-      - pkg-config-do-not-add-requires-private.patch
+      #- pkg-config-do-not-add-requires-private.patch
 
 build:
   number: 0
