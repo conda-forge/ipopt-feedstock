@@ -1,7 +1,7 @@
-diff --git a/ipopt.pc.in b/ipopt.pc.in
+diff --git a/src/ipopt.pc.in b/src/ipopt.pc.in
 index 15a7305f..2220edd3 100644
---- a/ipopt.pc.in
-+++ b/ipopt.pc.in
+--- a/src/ipopt.pc.in
++++ b/src/ipopt.pc.in
 @@ -10,6 +10,5 @@ URL: @PACKAGE_URL@
  Version: @PACKAGE_VERSION@
  Cflags: -I${includedir}
