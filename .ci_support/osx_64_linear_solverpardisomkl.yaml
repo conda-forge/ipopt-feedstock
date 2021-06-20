@@ -1,19 +1,17 @@
+MACOSX_DEPLOYMENT_TARGET:
+- '10.9'
 c_compiler:
-- gcc
+- clang
 c_compiler_version:
-- '9'
-cdt_name:
-- cos6
+- '11'
 channel_sources:
 - conda-forge,defaults
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- gxx
+- clangxx
 cxx_compiler_version:
-- '9'
-docker_image:
-- quay.io/condaforge/linux-anvil-comp7
+- '11'
 fortran_compiler:
 - gfortran
 fortran_compiler_version:
@@ -22,6 +20,10 @@ libblas:
 - 3.8 *netlib
 liblapack:
 - 3.8 *netlib
+linear_solver:
+- pardisomkl
+macos_machine:
+- x86_64-apple-darwin13.4.0
 metis:
 - '5.1'
 mumps_seq:
@@ -30,10 +32,8 @@ pin_run_as_build:
   metis:
     max_pin: x.x
 target_platform:
-- linux-64
+- osx-64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
   - fortran_compiler_version
-- - cdt_name
-  - docker_image
