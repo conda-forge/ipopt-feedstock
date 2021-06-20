@@ -17,7 +17,7 @@ build:
   skip: true  # [win]
   string: {{ linear_solver }}
   script_env:
-    - LINEAR_SOLVER={{ linear_solver}}
+    - LINEAR_SOLVER={{ linear_solver }}
   run_exports:
     - {{ pin_subpackage('ipopt', max_pin='x.x') }}
 
