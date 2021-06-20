@@ -1,0 +1,3 @@
+linear_solver:
+  - mumps
+  - pardisomkl

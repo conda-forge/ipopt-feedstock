@@ -15,6 +15,9 @@ source:
 build:
   number: 0
   skip: true  # [win]
+  string: {{ linear_solver }}
+  script_env:
+    - LINEAR_SOLVER={{ linear_solver}}
   run_exports:
     - {{ pin_subpackage('ipopt', max_pin='x.x') }}
 
@@ -27,11 +30,15 @@ requirements:
     - wget  # [not win]
     - pkgconfig
   host:
-    - libblas
-    - liblapack
-    - metis
-    - mumps-seq
+    - libblas  # [linear_solver == 'mumps' ]
+    - liblapack  # [linear_solver == 'mumps' ]
+    - metis  # [linear_solver == 'mumps' ]
+    - mumps-seq  # [linear_solver == 'mumps' ]
+    - libblas * *mkl  # [linear_solver == 'pardisomkl']
+    - liblapack * *mkl  # [linear_solver == 'pardisomkl']
     - ampl-mp  # [not win]
+  run:
+    - mkl  # [linear_solver == 'pardisomkl']
 
 test:
   files:
