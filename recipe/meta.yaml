@@ -13,7 +13,7 @@ source:
       - pkg-config-do-not-add-requires-private.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
   string: {{ linear_solver }}
   script_env:
