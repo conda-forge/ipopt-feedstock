@@ -7,6 +7,13 @@ if [ "$(uname)" == "Linux" ]; then
   export LDFLAGS="${LDFLAGS} -lrt"
 fi
 
+# Workaround borrowed from
+#   https://github.com/conda-forge/paraview-feedstock/blob/768674f52f492f357c132b110fcb18b2c0587742/recipe/build.sh#L4
+# For issue as reported here:
+#   https://github.com/AnacondaRecipes/intel_repack-feedstock/issues/8
+#   https://github.com/conda-forge/python-feedstock/issues/289
+export LDFLAGS=`echo "${LDFLAGS}" | sed "s|-Wl,-dead_strip_dylibs||g"`
+
 mkdir build
 cd build
 
