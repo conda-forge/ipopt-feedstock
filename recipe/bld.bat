@@ -8,7 +8,7 @@ mkdir build
 cd build
 
 :: Configure using the CMakeFiles
-if %LINEAR_SOLVER%=='mumps' (
+if %MKL_SUPPORT%=='nomkl' (
       cmake -G "NMake Makefiles" ^
             -DCMAKE_PREFIX_PATH="%LIBRARY_PREFIX%" ^
             -DCMAKE_INSTALL_PREFIX:PATH="%LIBRARY_PREFIX%" ^
@@ -27,7 +27,7 @@ if %LINEAR_SOLVER%=='mumps' (
 )
 if errorlevel 1 exit 1
 
-if %LINEAR_SOLVER%=='pardisomkl' (
+if %MKL_SUPPORT%=='mkl' (
       cmake -G "NMake Makefiles" ^
             -DCMAKE_PREFIX_PATH="%LIBRARY_PREFIX%" ^
             -DCMAKE_INSTALL_PREFIX:PATH="%LIBRARY_PREFIX%" ^
@@ -35,6 +35,8 @@ if %LINEAR_SOLVER%=='pardisomkl' (
             -DIPOPT_BUILD_EXAMPLES=1 ^
             -DIPOPT_HAS_BLAS=1 ^
             -DIPOPT_HAS_LAPACK=1 ^
+            -DIPOPT_HAS_MUMPS=1 ^
+            -DIPOPT_HAS_RAND=1 ^
             -DIPOPT_HAS_PARDISO_MKL=1 ^
             -DIPOPT_HAS_RAND=1 ^
             -DIPOPT_ENABLE_LINEARSOLVERLOADER=1 ^
