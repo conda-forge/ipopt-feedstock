@@ -15,9 +15,9 @@ source:
 build:
   number: 1
   skip: true  # [win]
-  string: {{ linear_solver }}
+  string: {{ mkl_support }}
   script_env:
-    - LINEAR_SOLVER={{ linear_solver }}
+    - MKL_SUPPORT={{ mkl_support }}
   run_exports:
     - {{ pin_subpackage('ipopt', max_pin='x.x') }}
 
@@ -30,15 +30,15 @@ requirements:
     - wget  # [not win]
     - pkgconfig
   host:
-    - libblas  # [linear_solver == 'mumps' ]
-    - liblapack  # [linear_solver == 'mumps' ]
-    - metis  # [linear_solver == 'mumps' ]
-    - mumps-seq  # [linear_solver == 'mumps' ]
-    - libblas * *mkl  # [linear_solver == 'pardisomkl']
-    - liblapack * *mkl  # [linear_solver == 'pardisomkl']
-    - ampl-mp  # [not win]
+    - libblas           # [mkl_support == 'nomkl']
+    - liblapack         # [mkl_support == 'nomkl']
+    - liblapack * *mkl  # [mkl_support == 'mkl']
+    - libblas * *mkl    # [mkl_support == 'mkl']
+    - metis
+    - mumps-seq
+    - ampl-mp           # [not win]
   run:
-    - mkl  # [linear_solver == 'pardisomkl']
+    - mkl               # [mkl_support == 'mkl']
 
 test:
   files:

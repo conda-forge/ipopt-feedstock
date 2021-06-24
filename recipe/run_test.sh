@@ -5,7 +5,12 @@ pkg-config --exists --print-errors --debug ipopt
 pkg-config --validate --print-errors --debug ipopt
 
 # Test the ipopt binary
-ipopt mytoy.nl | grep -q "Optimal Solution"
+ipopt mytoy.nl "linear_solver mumps"
+
+if [[ ${MKL_SUPPORT} == 'mkl' ]]; then
+  # If built with MKL, then test pardisomkl linear solver
+  ipopt mytoy.nl "linear_solver pardisomkl"
+fi
 
 # Test linking against the ipopt library
 cd test

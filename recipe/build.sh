@@ -17,26 +17,16 @@ export LDFLAGS=`echo "${LDFLAGS}" | sed "s|-Wl,-dead_strip_dylibs||g"`
 mkdir build
 cd build
 
-if [[ ${LINEAR_SOLVER} == 'pardisomkl' ]]; then
-  ../configure \
-    --without-hsl \
-    --disable-java \
-    --with-asl \
-    --with-asl-cflags="-I${PREFIX}/include/asl" \
-    --with-asl-lflags="-lasl" \
-    --prefix=${PREFIX}
-elif [[ ${LINEAR_SOLVER} == 'mumps' ]]; then
-  ../configure \
-    --without-hsl \
-    --disable-java \
-    --with-mumps \
-    --with-mumps-cflags="-I${PREFIX}/include/mumps_seq" \
-    --with-mumps-lflags="-ldmumps_seq -lmumps_common_seq -lpord_seq -lmpiseq_seq -lesmumps -lscotch -lscotcherr -lmetis -lgfortran" \
-    --with-asl \
-    --with-asl-cflags="-I${PREFIX}/include/asl" \
-    --with-asl-lflags="-lasl" \
-    --prefix=${PREFIX}
-fi
+../configure \
+  --without-hsl \
+  --disable-java \
+  --with-mumps \
+  --with-mumps-cflags="-I${PREFIX}/include/mumps_seq" \
+  --with-mumps-lflags="-ldmumps_seq -lmumps_common_seq -lpord_seq -lmpiseq_seq -lesmumps -lscotch -lscotcherr -lmetis -lgfortran" \
+  --with-asl \
+  --with-asl-cflags="-I${PREFIX}/include/asl" \
+  --with-asl-lflags="-lasl" \
+  --prefix=${PREFIX}
 
 make -j${CPU_COUNT}
 make test
