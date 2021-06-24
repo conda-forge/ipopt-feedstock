@@ -20,17 +20,21 @@ libblas:
 - 3.8 *netlib
 liblapack:
 - 3.8 *netlib
-linear_solver:
-- pardisomkl
 macos_machine:
 - x86_64-apple-darwin13.4.0
 metis:
 - '5.1'
+mkl:
+- '2019'
+mkl_support:
+- mkl
 mumps_seq:
 - '5.2'
 pin_run_as_build:
   metis:
     max_pin: x.x
+  mkl:
+    max_pin: x
 target_platform:
 - osx-64
 zip_keys:

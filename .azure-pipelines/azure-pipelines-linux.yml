@@ -8,12 +8,12 @@ jobs:
     vmImage: ubuntu-latest
   strategy:
     matrix:
-      linux_64_linear_solvermumps:
-        CONFIG: linux_64_linear_solvermumps
+      linux_64_mkl_supportmkl:
+        CONFIG: linux_64_mkl_supportmkl
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
-      linux_64_linear_solverpardisomkl:
-        CONFIG: linux_64_linear_solverpardisomkl
+      linux_64_mkl_supportnomkl:
+        CONFIG: linux_64_mkl_supportnomkl
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
   timeoutInMinutes: 360

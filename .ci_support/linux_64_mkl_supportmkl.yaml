@@ -22,15 +22,19 @@ libblas:
 - 3.8 *netlib
 liblapack:
 - 3.8 *netlib
-linear_solver:
-- mumps
 metis:
 - '5.1'
+mkl:
+- '2019'
+mkl_support:
+- mkl
 mumps_seq:
 - '5.2'
 pin_run_as_build:
   metis:
     max_pin: x.x
+  mkl:
+    max_pin: x
 target_platform:
 - linux-64
 zip_keys:

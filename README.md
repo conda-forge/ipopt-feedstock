@@ -27,31 +27,31 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64_linear_solvermumps</td>
+              <td>linux_64_mkl_supportmkl</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5618&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/ipopt-feedstock?branchName=master&jobName=linux&configuration=linux_64_linear_solvermumps" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/ipopt-feedstock?branchName=master&jobName=linux&configuration=linux_64_mkl_supportmkl" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_linear_solverpardisomkl</td>
+              <td>linux_64_mkl_supportnomkl</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5618&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/ipopt-feedstock?branchName=master&jobName=linux&configuration=linux_64_linear_solverpardisomkl" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/ipopt-feedstock?branchName=master&jobName=linux&configuration=linux_64_mkl_supportnomkl" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_linear_solvermumps</td>
+              <td>osx_64_mkl_supportmkl</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5618&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/ipopt-feedstock?branchName=master&jobName=osx&configuration=osx_64_linear_solvermumps" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/ipopt-feedstock?branchName=master&jobName=osx&configuration=osx_64_mkl_supportmkl" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_linear_solverpardisomkl</td>
+              <td>osx_64_mkl_supportnomkl</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5618&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/ipopt-feedstock?branchName=master&jobName=osx&configuration=osx_64_linear_solverpardisomkl" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/ipopt-feedstock?branchName=master&jobName=osx&configuration=osx_64_mkl_supportnomkl" alt="variant">
                 </a>
               </td>
             </tr>
