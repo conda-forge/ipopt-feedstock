@@ -912,6 +912,7 @@ set(COMMON_HDRS ${Ipopt_DIR}/src/Common/IpCachedResults.hpp
 		${Ipopt_DIR}/src/Common/IpSmartPtr.hpp
 		${Ipopt_DIR}/src/Common/IpTaggedObject.hpp
 		${Ipopt_DIR}/src/Common/IpTimedTask.hpp
+		${Ipopt_DIR}/src/Common/IpTypes.h
 		${Ipopt_DIR}/src/Common/IpTypes.hpp
 		${Ipopt_DIR}/src/Common/IpUtils.hpp)
 
