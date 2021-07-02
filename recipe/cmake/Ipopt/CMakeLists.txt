@@ -135,7 +135,8 @@ set (IPOPT_SRC_ALGORITHM_INEXACT_LIST ${Ipopt_DIR}/src/Algorithm/Inexact/IpInexa
                                       ${Ipopt_DIR}/src/Algorithm/Inexact/IpInexactPDTerminationTester.cpp
                                       ${Ipopt_DIR}/src/Algorithm/Inexact/IpIterativePardisoSolverInterface.cpp)
 
-set (IPOPT_SRC_ALGORITHM_LINEARSOLVERS_LIST ${Ipopt_DIR}/src/Algorithm/LinearSolvers/IpLinearSolversRegOp.cpp
+set (IPOPT_SRC_ALGORITHM_LINEARSOLVERS_LIST ${Ipopt_DIR}/src/Algorithm/LinearSolvers/IpLinearSolvers.c 
+                                            ${Ipopt_DIR}/src/Algorithm/LinearSolvers/IpLinearSolversRegOp.cpp
                                             ${Ipopt_DIR}/src/Algorithm/LinearSolvers/IpSlackBasedTSymScalingMethod.cpp
                                             ${Ipopt_DIR}/src/Algorithm/LinearSolvers/IpTripletToCSRConverter.cpp
                                             ${Ipopt_DIR}/src/Algorithm/LinearSolvers/IpTSymDependencyDetector.cpp
@@ -188,15 +189,8 @@ set (IPOPT_SRC_CONTRIB_CGPENALTY_LIST ${Ipopt_DIR}/src/contrib/CGPenalty/IpCGPen
                                       ${Ipopt_DIR}/src/contrib/CGPenalty/IpCGSearchDirCalc.cpp
                                       ${Ipopt_DIR}/src/contrib/CGPenalty/IpPiecewisePenalty.cpp)
 
-set (IPOPT_SRC_CONTRIB_LINEARSOLVERLOADER_LIST ${Ipopt_DIR}/src/contrib/LinearSolverLoader/LibraryHandler.c
-                                               ${Ipopt_DIR}/src/contrib/LinearSolverLoader/HSLLoader.c)
-
-if (IPOPT_ENABLE_LINEARSOLVERLOADER)
-  set(IPOPT_SRC_CONTRIB_LINEARSOLVERLOADER_LIST ${IPOPT_SRC_CONTRIB_LINEARSOLVERLOADER_LIST}
-                                                ${Ipopt_DIR}/src/contrib/LinearSolverLoader/PardisoLoader.c)
-endif ()
-
-set (IPOPT_SRC_COMMON_LIST ${Ipopt_DIR}/src/Common/IpJournalist.cpp
+set (IPOPT_SRC_COMMON_LIST ${Ipopt_DIR}/src/Common/IpLibraryLoader.cpp 
+                           ${Ipopt_DIR}/src/Common/IpJournalist.cpp
                            ${Ipopt_DIR}/src/Common/IpObserver.cpp
                            ${Ipopt_DIR}/src/Common/IpOptionsList.cpp
                            ${Ipopt_DIR}/src/Common/IpRegOptions.cpp
@@ -245,7 +239,6 @@ set (IPOPT_SRC_LIST ${IPOPT_SRC_ALGORITHM_LIST}
                     ${IPOPT_SRC_APPS_CUTERINTERFACE_LIST}
                     ${IPOPT_SRC_APPS_AMPLSOLVER_LIST}
                     ${IPOPT_SRC_CONTRIB_CGPENALTY_LIST}
-                    ${IPOPT_SRC_CONTRIB_LINEARSOLVERLOADER_LIST}
                     ${IPOPT_SRC_COMMON_LIST}
                     ${IPOPT_SRC_INTERFACES_LIST}
                     ${IPOPT_SRC_LINALG_LIST}
@@ -910,6 +903,7 @@ set(COMMON_HDRS ${Ipopt_DIR}/src/Common/IpCachedResults.hpp
 	        ${Ipopt_DIR}/src/Common/IpDebug.hpp
 		${Ipopt_DIR}/src/Common/IpException.hpp
 		${Ipopt_DIR}/src/Common/IpJournalist.hpp
+		${Ipopt_DIR}/src/Common/IpLibraryLoader.hpp
 		${Ipopt_DIR}/src/Common/IpObserver.hpp
 		${Ipopt_DIR}/src/Common/IpOptionsList.hpp
 		${Ipopt_DIR}/src/Common/IpReferenced.hpp
