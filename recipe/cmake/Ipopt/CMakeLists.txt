@@ -203,6 +203,7 @@ set (IPOPT_SRC_INTERFACES_LIST ${Ipopt_DIR}/src/Interfaces/IpInterfacesRegOp.cpp
                                ${Ipopt_DIR}/src/Interfaces/IpStdCInterface.cpp
                                ${Ipopt_DIR}/src/Interfaces/IpStdFInterface.c
                                ${Ipopt_DIR}/src/Interfaces/IpStdInterfaceTNLP.cpp
+			       ${Ipopt_DIR}/src/Interfaces/IpTNLP.cpp
                                ${Ipopt_DIR}/src/Interfaces/IpTNLPAdapter.cpp
                                ${Ipopt_DIR}/src/Interfaces/IpTNLPReducer.cpp)
 
