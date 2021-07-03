@@ -8,8 +8,11 @@ jobs:
     vmImage: vs2017-win2016
   strategy:
     matrix:
-      win_64_:
-        CONFIG: win_64_
+      win_64_mkl_supportmkl:
+        CONFIG: win_64_mkl_supportmkl
+        UPLOAD_PACKAGES: 'True'
+      win_64_mkl_supportnomkl:
+        CONFIG: win_64_mkl_supportnomkl
         UPLOAD_PACKAGES: 'True'
   timeoutInMinutes: 360
   variables:

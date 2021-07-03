@@ -55,10 +55,17 @@ Current build status
                 </a>
               </td>
             </tr><tr>
-              <td>win_64</td>
+              <td>win_64_mkl_supportmkl</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5618&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/ipopt-feedstock?branchName=master&jobName=win&configuration=win_64_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/ipopt-feedstock?branchName=master&jobName=win&configuration=win_64_mkl_supportmkl" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_mkl_supportnomkl</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5618&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/ipopt-feedstock?branchName=master&jobName=win&configuration=win_64_mkl_supportnomkl" alt="variant">
                 </a>
               </td>
             </tr>
