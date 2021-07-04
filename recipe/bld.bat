@@ -8,7 +8,7 @@ mkdir build
 cd build
 
 :: Configure using the CMakeFiles
-if %MKL_SUPPORT%=='nomkl' (
+if "%MKL_SUPPORT%" == "nomkl" (
       cmake -G "NMake Makefiles" ^
             -DCMAKE_PREFIX_PATH="%LIBRARY_PREFIX%" ^
             -DCMAKE_INSTALL_PREFIX:PATH="%LIBRARY_PREFIX%" ^
@@ -27,7 +27,7 @@ if %MKL_SUPPORT%=='nomkl' (
 )
 if errorlevel 1 exit 1
 
-if %MKL_SUPPORT%=='mkl' (
+if "%MKL_SUPPORT%" == "mkl"(
       cmake -G "NMake Makefiles" ^
             -DCMAKE_PREFIX_PATH="%LIBRARY_PREFIX%" ^
             -DCMAKE_INSTALL_PREFIX:PATH="%LIBRARY_PREFIX%" ^
