@@ -37,7 +37,8 @@ if "%MKL_SUPPORT%" == "mkl" (
             -DIPOPT_HAS_LAPACK=1 ^
             -DIPOPT_HAS_MUMPS=1 ^
             -DIPOPT_HAS_PARDISO=1 ^
-            -DIPOPT_HAS_PARDISOMKL=1 ^
+            -DIPOPT_ENABLE_INEXACT=1 ^
+            -DIPOPT_HAS_PARDISO_MKL=1 ^
             -DIPOPT_HAS_RAND=1 ^
             -DIPOPT_ENABLE_LINEARSOLVERLOADER=1 ^
             -DIPOPT_ENABLE_PARDISOSOLVERLOADER=1 ^
@@ -45,6 +46,7 @@ if "%MKL_SUPPORT%" == "mkl" (
             -DCOIN_USE_SYSTEM_LAPACK=TRUE ^
             -DCOIN_HAS_MUMPS_INCLUDE_PATH="%LIBRARY_INC%\mumps_seq" ^
             -DCOIN_HAS_MUMPS_LIBRARY_PATH="%LIBRARY_BIN%" ^
+            -DCOIN_HAS_MKL=TRUE ^
             ..
 )
 if errorlevel 1 exit 1

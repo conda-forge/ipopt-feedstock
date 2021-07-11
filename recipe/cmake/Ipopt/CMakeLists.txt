@@ -311,6 +311,10 @@ if (COIN_HAS_LAPACK OR COIN_ENABLE_DOWNLOAD_LAPACK OR COIN_USE_SYSTEM_LAPACK)
   target_link_libraries(libipopt lapack blas)
 endif ()
 
+if (MKL_FOUND)
+  target_link_libraries(libipopt ${COIN_MKL_LIBS})
+endif()
+
 if (IPOPT_HAS_AMPL)
   set (IPOPT_AMPL_SRC_LIST ${Ipopt_DIR}/src/Apps/AmplSolver/ampl_ipopt.cpp)
   
