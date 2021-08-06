@@ -23,6 +23,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - cmake  # [win]
+    - make  # [not win]
     - wget  # [not win]
     - pkgconfig
   host:
