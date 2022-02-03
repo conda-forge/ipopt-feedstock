@@ -9,7 +9,7 @@ cxx_compiler:
 fortran_compiler:
 - flang
 fortran_compiler_version:
-- '5'
+- '11'
 libblas:
 - 3.8 *netlib
 liblapack:
