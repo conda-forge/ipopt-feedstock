@@ -22,7 +22,9 @@ cd build
   --prefix=${PREFIX}
 
 make -j${CPU_COUNT}
-make test
+if [[ "$CONDA_BUILD_CROSS_COMPILATION" != "1" ]]; then
+  make test
+fi
 make install
 
 # for backward compatibility
