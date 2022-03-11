@@ -9,7 +9,6 @@ source:
   - url: https://github.com/coin-or/Ipopt/archive/releases/{{ version }}.tar.gz
     sha256: 9ebbbbf14a64e998e3fba5d2662a8f9bd03f97b1406017e78ae54e5d105ae932
     patches:
-      - linux-configure.patch  # [linux]
       - pkg-config-do-not-add-requires-private.patch
 
 build:
