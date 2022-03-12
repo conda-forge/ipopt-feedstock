@@ -30,5 +30,3 @@ make install
 # for backward compatibility
 install -d ${PREFIX}/include/coin
 install -m644 ${PREFIX}/include/coin-or/* ${PREFIX}/include/coin
-
-
