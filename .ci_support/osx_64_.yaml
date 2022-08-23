@@ -3,7 +3,7 @@ MACOSX_DEPLOYMENT_TARGET:
 c_compiler:
 - clang
 c_compiler_version:
-- '13'
+- '14'
 channel_sources:
 - conda-forge
 channel_targets:
@@ -11,7 +11,7 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '13'
+- '14'
 fortran_compiler:
 - gfortran
 fortran_compiler_version:
@@ -25,7 +25,7 @@ macos_machine:
 metis:
 - '5.1'
 mumps_seq:
-- '5.2'
+- 5.2.1
 pin_run_as_build:
   metis:
     max_pin: x.x
