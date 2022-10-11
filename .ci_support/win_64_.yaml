@@ -1,11 +1,11 @@
 c_compiler:
-- vs2017
+- vs2019
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- vs2017
+- vs2019
 fortran_compiler:
 - flang
 fortran_compiler_version:
@@ -18,8 +18,5 @@ metis:
 - '5.1'
 mumps_seq:
 - 5.2.1
-pin_run_as_build:
-  metis:
-    max_pin: x.x
 target_platform:
 - win-64
