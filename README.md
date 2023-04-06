@@ -1,11 +1,11 @@
-About ipopt
-===========
+About ipopt-feedstock
+=====================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/ipopt-feedstock/blob/main/LICENSE.txt)
 
 Home: https://projects.coin-or.org/Ipopt/
 
 Package license: EPL-1.0
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/ipopt-feedstock/blob/main/LICENSE.txt)
 
 Summary: Software package for large-scale nonlinear optimization
 
