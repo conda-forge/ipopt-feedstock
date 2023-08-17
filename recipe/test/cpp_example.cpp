@@ -16,14 +16,22 @@
 
 using namespace Ipopt;
 
-int main(int argv, char* argc[])
+int main(int argc, char* argv[])
 {
   // Regression test for https://github.com/conda-forge/ipopt-feedstock/issues/57
   if (!Ipopt::IsFiniteNumber(0.0)) {
     std::cout << std::endl << std::endl << "*** Error detected in Ipopt::IsFiniteNumber!" << std::endl;
     return 1;
   }
-  
+
+  if (argc < 2) {
+    std::cerr << std::endl << std::endl << "*** Missing linear_solver in command line" << std::endl;
+    return EXIT_FAILURE;
+  }
+  else {
+    std::cout << "*** Running example with linear solver " << argv[1] << std::endl;
+  }
+
   // Create an instance of your nlp...
   SmartPtr<TNLP> mynlp = new MyNLP();
 
@@ -33,6 +41,7 @@ int main(int argv, char* argc[])
   // example with an Ipopt Windows DLL
   SmartPtr<IpoptApplication> app = IpoptApplicationFactory();
   app->Options()->SetNumericValue("tol", 1e-9);
+  app->Options()->SetStringValue("linear_solver", argv[1]);
 
   // Initialize the IpoptApplication and process the options
   ApplicationReturnStatus status;

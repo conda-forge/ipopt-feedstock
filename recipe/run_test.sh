@@ -21,4 +21,11 @@ else
   ${CXX} -L$PREFIX/lib -lipopt -I$PREFIX/include/coin-or -o cpp_example cpp_example.o MyNLP.o
 fi
 
-./cpp_example | grep -q "Optimal Solution"
+./cpp_example mumps | grep -q "Optimal Solution"
+if [ $(uname -s) == 'Linux' ]; then
+  echo "Test spral linear solver"
+  # Environment variables needed by spral
+  export OMP_CANCELLATION=TRUE
+  export OMP_PROC_BIND=TRUE
+  ./cpp_example spral | grep -q "Optimal Solution"
+fi
