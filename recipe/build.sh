@@ -8,7 +8,7 @@ export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib -Wl,-rpath,${PREFIX}/lib"
 export SPRAL_OPTIONS=
 if [ "$(uname)" == "Linux" ]; then
   export LDFLAGS="${LDFLAGS} -lrt"
-  export SPRAL_OPTIONS="--with-spral --with-spral-cflags=\"-I${PREFIX}/include\" --with-spral-lflags=\"-lspral\""
+  export SPRAL_OPTIONS="--with-spral --with-spral-cflags=-I${PREFIX}/include --with-spral-lflags=-lspral"
 fi
 
 mkdir build
