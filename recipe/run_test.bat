@@ -17,5 +17,5 @@ if errorlevel 1 exit 1
 set PATH=C:\Windows\System32;%PATH%
 
 :: Run example
-.\cpp_example.exe | find "Optimal Solution"
+.\cpp_example.exe mumps | find "Optimal Solution"
 if errorlevel 1 exit 1

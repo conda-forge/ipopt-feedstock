@@ -10,9 +10,10 @@ source:
     sha256: 6b06cd6280d5ca52fc97ca95adaaddd43529e6e8637c274e21ee1072c3b4577f
     patches:
       - pkg-config-do-not-add-requires-private.patch
+      - 677.patch
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage('ipopt', max_pin='x.x.x') }}
 
@@ -31,6 +32,7 @@ requirements:
     - liblapack
     - metis
     - mumps-seq
+    - libspral  # [linux]
     - ampl-mp  # [not win]
 
 test:
