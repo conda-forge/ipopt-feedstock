@@ -10,7 +10,6 @@ source:
     sha256: 2afcb057e7cf8ed7e07f50ee0a4a06d2e4d39e0f964777e9dd55fe56199a5e0a
     patches:
       - pkg-config-do-not-add-requires-private.patch
-      - 677.patch
 
 build:
   number: 0
