@@ -23,7 +23,7 @@ liblapack:
 macos_machine:
 - x86_64-apple-darwin13.4.0
 metis:
-- '5.1'
+- 5.1.1
 mumps_seq:
 - 5.2.1
 target_platform:

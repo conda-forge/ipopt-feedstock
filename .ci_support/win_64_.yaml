@@ -15,7 +15,7 @@ libblas:
 liblapack:
 - 3.9 *netlib
 metis:
-- '5.1'
+- 5.1.1
 mumps_seq:
 - 5.2.1
 target_platform:
