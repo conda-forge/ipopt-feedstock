@@ -1,0 +1,43 @@
+From 9a36a9ed0d19900cbc7553209de4d0207c731afa Mon Sep 17 00:00:00 2001
+From: Stefan Vigerske <svigerske@gams.com>
+Date: Fri, 19 Apr 2024 19:05:24 +0200
+Subject: [PATCH] try again with LoadLibrary if LoadLibraryExA failed, for #759
+
+---
+ src/Common/IpLibraryLoader.cpp | 23 ++++++++++++++++-------
+ 1 file changed, 16 insertions(+), 7 deletions(-)
+
+diff --git a/src/Common/IpLibraryLoader.cpp b/src/Common/IpLibraryLoader.cpp
+index 2ad3bc97e..9eb6451c3 100644
+--- a/src/Common/IpLibraryLoader.cpp
++++ b/src/Common/IpLibraryLoader.cpp
+@@ -52,13 +52,22 @@ void LibraryLoader::loadLibrary()
+ #ifdef HAVE_WINDOWS_H
+    libhandle = (void*)LoadLibraryExA(libname.c_str(), NULL, LOAD_LIBRARY_SEARCH_DEFAULT_DIRS | LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR);
+ 
+-   if( libhandle == NULL )
+-   {
+-      std::stringstream s;
+-      s << "Error " << GetLastError() << " while loading DLL " << libname << ": ";
+-      addLastError(s);
+-      THROW_EXCEPTION(DYNAMIC_LIBRARY_FAILURE, s.str());
+-   }
++   if( libhandle != NULL )
++      return;
++
++   std::stringstream s;
++   s << "Error " << GetLastError() << " while loading DLL " << libname << " with LoadLibraryExA: ";
++   addLastError(s);
++
++   libhandle = (void*)LoadLibrary(libname.c_str());
++
++   if( libhandle != NULL )
++      return;
++
++   s << "; Error " << GetLastError() << " while loading DLL " << libname << " with LoadLibrary: ";
++   addLastError(s);
++
++   THROW_EXCEPTION(DYNAMIC_LIBRARY_FAILURE, s.str());
+ 
+ #elif defined(HAVE_DLFCN_H)
+    // ToDo switch to RTLD_LAZY for performance?
