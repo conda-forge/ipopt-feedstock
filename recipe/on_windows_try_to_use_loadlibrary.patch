@@ -1,43 +1,35 @@
-From 9a36a9ed0d19900cbc7553209de4d0207c731afa Mon Sep 17 00:00:00 2001
+From eaf02be7d3a50d2a2d3917af6e82c5ede5fcd02d Mon Sep 17 00:00:00 2001
 From: Stefan Vigerske <svigerske@gams.com>
 Date: Fri, 19 Apr 2024 19:05:24 +0200
-Subject: [PATCH] try again with LoadLibrary if LoadLibraryExA failed, for #759
+Subject: [PATCH] use LoadLibraryExA for absolute paths to libs only
 
+- LoadLibraryExA with relative path and LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR
+  gives an incorrect parameter error
+- LoadLibraryExA with relative path and LOAD_LIBRARY_SEARCH_DEFAULT_DIRS
+  does not look into standard search paths like PATH
+- thus use LoadLibraryA again when libname seems to be relative path
+- fixes #759
 ---
- src/Common/IpLibraryLoader.cpp | 23 ++++++++++++++++-------
- 1 file changed, 16 insertions(+), 7 deletions(-)
+ src/Common/IpLibraryLoader.cpp | 9 ++++++++-
+ 1 files changed, 9 insertions(+), 1 deletion(-)
 
 diff --git a/src/Common/IpLibraryLoader.cpp b/src/Common/IpLibraryLoader.cpp
-index 2ad3bc97e..9eb6451c3 100644
+index 2ad3bc97e..0ae8a142c 100644
 --- a/src/Common/IpLibraryLoader.cpp
 +++ b/src/Common/IpLibraryLoader.cpp
-@@ -52,13 +52,22 @@ void LibraryLoader::loadLibrary()
+@@ -50,7 +50,14 @@ void LibraryLoader::loadLibrary()
+    }
+ 
  #ifdef HAVE_WINDOWS_H
-    libhandle = (void*)LoadLibraryExA(libname.c_str(), NULL, LOAD_LIBRARY_SEARCH_DEFAULT_DIRS | LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR);
+-   libhandle = (void*)LoadLibraryExA(libname.c_str(), NULL, LOAD_LIBRARY_SEARCH_DEFAULT_DIRS | LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR);
++   /* if absolute path, then use LoadLibraryExA with LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR to find
++    * dependencies of library in same directory
++    * otherwise, use standard search paths (which includes PATH)
++    */
++   if( libname.length() > 2 && libname[1] == ':' )
++      libhandle = (void*)LoadLibraryExA(libname.c_str(), NULL, LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR);
++   else
++      libhandle = (void*)LoadLibraryA(libname.c_str());
  
--   if( libhandle == NULL )
--   {
--      std::stringstream s;
--      s << "Error " << GetLastError() << " while loading DLL " << libname << ": ";
--      addLastError(s);
--      THROW_EXCEPTION(DYNAMIC_LIBRARY_FAILURE, s.str());
--   }
-+   if( libhandle != NULL )
-+      return;
-+
-+   std::stringstream s;
-+   s << "Error " << GetLastError() << " while loading DLL " << libname << " with LoadLibraryExA: ";
-+   addLastError(s);
-+
-+   libhandle = (void*)LoadLibrary(libname.c_str());
-+
-+   if( libhandle != NULL )
-+      return;
-+
-+   s << "; Error " << GetLastError() << " while loading DLL " << libname << " with LoadLibrary: ";
-+   addLastError(s);
-+
-+   THROW_EXCEPTION(DYNAMIC_LIBRARY_FAILURE, s.str());
- 
- #elif defined(HAVE_DLFCN_H)
-    // ToDo switch to RTLD_LAZY for performance?
+    if( libhandle == NULL )
+    {
