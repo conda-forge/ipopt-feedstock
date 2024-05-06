@@ -29,7 +29,7 @@ macos_machine:
 metis:
 - 5.1.0
 mumps_seq:
-- 5.7.0
+- 5.7.1
 target_platform:
 - osx-arm64
 zip_keys:
