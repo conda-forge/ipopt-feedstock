@@ -18,7 +18,7 @@ cd build
   --without-hsl $SPRAL_OPTIONS \
   --disable-java \
   --with-mumps \
-  --with-mumps-cflags="$(pkg-config --cflags dmumps_seq)" \
+  --with-mumps-cflags="-I${PREFIX}/include/mumps_seq" \
   --with-mumps-lflags="$(pkg-config --libs dmumps_seq)" \
   --with-asl \
   --with-asl-cflags="-I${PREFIX}/include/asl" \
