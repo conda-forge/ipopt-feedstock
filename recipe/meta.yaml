@@ -31,7 +31,6 @@ requirements:
     - libblas
     - liblapack
     - mumps-seq
-    - scotch
     - libspral  # [linux]
     - ampl-mp  # [not win]
 
