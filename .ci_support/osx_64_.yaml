@@ -30,8 +30,6 @@ macos_machine:
 - x86_64-apple-darwin13.4.0
 mumps_seq:
 - 5.7.3
-scotch:
-- 7.0.4
 target_platform:
 - osx-64
 zip_keys:

@@ -30,8 +30,6 @@ macos_machine:
 - arm64-apple-darwin20.0.0
 mumps_seq:
 - 5.7.3
-scotch:
-- 7.0.4
 target_platform:
 - osx-arm64
 zip_keys:

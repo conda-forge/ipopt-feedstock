@@ -18,7 +18,5 @@ liblapack:
 - 3.9 *netlib
 mumps_seq:
 - 5.7.3
-scotch:
-- 7.0.4
 target_platform:
 - win-64
