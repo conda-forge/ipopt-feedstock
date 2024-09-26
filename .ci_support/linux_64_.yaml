@@ -26,12 +26,8 @@ libblas:
 - 3.9 *netlib
 liblapack:
 - 3.9 *netlib
-metis:
-- 5.1.0
 mumps_seq:
 - 5.7.3
-scotch:
-- 7.0.4
 target_platform:
 - linux-64
 zip_keys:
