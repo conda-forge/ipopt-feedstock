@@ -12,7 +12,7 @@ source:
       - pkg-config-do-not-add-requires-private.patch
 
 build:
-  number: 8
+  number: 9
   run_exports:
     - {{ pin_subpackage('ipopt', max_pin='x.x.x') }}
 
