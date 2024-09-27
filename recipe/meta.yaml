@@ -12,7 +12,7 @@ source:
       - pkg-config-do-not-add-requires-private.patch
 
 build:
-  number: 9
+  number: 10
   run_exports:
     - {{ pin_subpackage('ipopt', max_pin='x.x.x') }}
 
@@ -31,8 +31,6 @@ requirements:
     - libblas
     - liblapack
     - mumps-seq
-    - metis
-    - libscotch
     - libspral  # [linux]
     - ampl-mp  # [not win]
 
