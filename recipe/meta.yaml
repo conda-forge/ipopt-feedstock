@@ -32,7 +32,7 @@ requirements:
     - liblapack
     - mumps-seq
     - libspral  # [linux]
-    - ampl-mp  # [not win]
+    - ampl-asl  # [not win]
 
 test:
   files:
