@@ -7,6 +7,10 @@ if errorlevel 1 exit 1
 pkg-config --validate --print-errors --debug ipopt
 if errorlevel 1 exit 1
 
+:: Test the ipopt binary
+ipopt mytoy.nl | find "Optimal Solution"
+
+:: Test linking against the ipopt library
 cd test
 
 :: Compile example that links ipopt
