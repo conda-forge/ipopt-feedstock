@@ -14,6 +14,13 @@ if [ "$(uname)" == "Linux" ]; then
   export SPRAL_OPTIONS="--with-spral --with-spral-cflags=-I${PREFIX}/include --with-spral-lflags=-lspral"
 fi
 
+if [[ "$target_platform" != "win-64" ]]; then
+  # On windows there are no dmumps_seq pkg-config, see https://github.com/conda-forge/mumps-feedstock/issues/129, so we manually specify how to link dmumps
+  export MUMPS_LFLAGS="-ldmumps"
+else
+  export MUMPS_LFLAGS="$(pkg-config --libs dmumps_seq)"
+fi
+
 mkdir build
 cd build
 
@@ -22,7 +29,7 @@ cd build
   --disable-java \
   --with-mumps \
   --with-mumps-cflags="-I${PREFIX}/include/mumps_seq" \
-  --with-mumps-lflags="$(pkg-config --libs dmumps_seq)" \
+  --with-mumps-lflags=${MUMPS_LFLAGS} \
   --with-asl \
   --with-asl-cflags="-I${PREFIX}/include/asl" \
   --with-asl-lflags="-lasl" \
