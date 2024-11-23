@@ -14,7 +14,7 @@ if [ "$(uname)" == "Linux" ]; then
   export SPRAL_OPTIONS="--with-spral --with-spral-cflags=-I${PREFIX}/include --with-spral-lflags=-lspral"
 fi
 
-if [[ "$target_platform" != "win-64" ]]; then
+if [[ "$target_platform" == "win-64" ]]; then
   # On windows there are no dmumps_seq pkg-config, see https://github.com/conda-forge/mumps-feedstock/issues/129, so we manually specify how to link dmumps
   export MUMPS_LFLAGS="-ldmumps"
 else
