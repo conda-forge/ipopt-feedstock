@@ -1,6 +1,9 @@
 #!/bin/bash
 # Get an updated config.sub and config.guess
-cp $BUILD_PREFIX/share/gnuconfig/config.* .
+
+if [[ "$target_platform" != "win-64" ]]; then
+  cp $BUILD_PREFIX/share/gnuconfig/config.* .
+fi
 
 cd $SRC_DIR
 
