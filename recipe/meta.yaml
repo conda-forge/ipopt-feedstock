@@ -33,6 +33,7 @@ requirements:
     - mumps-seq
     - libspral  # [linux]
     - ampl-mp  # [not win]
+    - ampl-asl  # [win]
 
 test:
   files:
