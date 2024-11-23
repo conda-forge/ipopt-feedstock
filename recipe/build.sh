@@ -29,7 +29,7 @@ cd build
   --disable-java \
   --with-mumps \
   --with-mumps-cflags="-I${PREFIX}/include/mumps_seq" \
-  --with-mumps-lflags=${MUMPS_LFLAGS} \
+  --with-mumps-lflags="${MUMPS_LFLAGS}" \
   --with-asl \
   --with-asl-cflags="-I${PREFIX}/include/asl" \
   --with-asl-lflags="-lasl" \
