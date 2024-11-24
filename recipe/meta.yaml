@@ -10,6 +10,7 @@ source:
     sha256: cc8c217991240db7eb14189eee0dff88f20a89bac11958b48625fa512fe8d104
     patches:
       - pkg-config-do-not-add-requires-private.patch
+      - handle-strdup-on-win.patch
 
 build:
   number: 10
