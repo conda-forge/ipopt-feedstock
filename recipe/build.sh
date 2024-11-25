@@ -59,5 +59,5 @@ if [[ "$target_platform" == "win-64" ]]; then
   # install and, that we manually rename here ipoptamplinterface.dll.lib
   # sipopt.dll.lib
   mv "${PREFIX}/lib/ipoptamplinterface.dll.lib" "${PREFIX}/lib/ipoptamplinterface.lib"
-  mv "${PREFIX}/libipoptamplinterface.dll.lib" "${PREFIX}/lib/sipopt.lib"
+  mv "${PREFIX}/lib/sipopt.dll.lib" "${PREFIX}/lib/sipopt.lib"
 fi
