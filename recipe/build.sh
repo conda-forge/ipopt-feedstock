@@ -51,3 +51,13 @@ make install
 # for backward compatibility
 install -d ${PREFIX}/include/coin
 install -m644 ${PREFIX}/include/coin-or/* ${PREFIX}/include/coin
+
+if [[ "$target_platform" == "win-64" ]]; then
+  # In conda-forge import library are called .lib, not .dll.lib, 
+  # and also pkg-config expects that. The main ipopt.dll.lib library
+  # is renamed by the run_autotools_clang_conda_build, but here we also
+  # install and, that we manually rename here ipoptamplinterface.dll.lib
+  # sipopt.dll.lib
+  mv "${PREFIX}/lib/ipoptamplinterface.dll.lib" "${PREFIX}/lib/ipoptamplinterface.lib"
+  mv "${PREFIX}/libipoptamplinterface.dll.lib" "${PREFIX}/lib/sipopt.lib"
+fi
