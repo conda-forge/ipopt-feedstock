@@ -16,10 +16,6 @@ libblas:
 - 3.9 *netlib
 liblapack:
 - 3.9 *netlib
-libscotch:
-- 7.0.4
-metis:
-- 5.1.0
 mumps_seq:
 - 5.7.3
 target_platform:

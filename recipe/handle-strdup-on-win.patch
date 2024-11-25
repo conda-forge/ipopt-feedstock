@@ -1,0 +1,36 @@
+From 2899b9711e9aea4eac3dd7b1d0f6d39b78e55baa Mon Sep 17 00:00:00 2001
+From: Silvio Traversaro <silvio@traversaro.it>
+Date: Sun, 24 Nov 2024 16:40:05 +0100
+Subject: [PATCH] AmplTNLP: Use _strdup if _WIN32 is defined
+
+---
+ src/Apps/AmplSolver/AmplTNLP.cpp | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/src/Apps/AmplSolver/AmplTNLP.cpp b/src/Apps/AmplSolver/AmplTNLP.cpp
+index bc686eb24..be2f3b743 100644
+--- a/src/Apps/AmplSolver/AmplTNLP.cpp
++++ b/src/Apps/AmplSolver/AmplTNLP.cpp
+@@ -14,6 +14,13 @@
+ 
+ #include <cstring>
+ 
++// strdup is named _strdup on Windows
++#ifdef _WIN32
++#define ipopt_strdup _strdup
++#else
++#define ipopt_strdup strdup
++#endif
++
+ /* AMPL includes */
+ #include "asl.h"
+ #include "asl_pfgh.h"
+@@ -1807,7 +1814,7 @@ void AmplSuffixHandler::PrepareAmplForSuffixes(
+    suftab_ = new SufDecl[n];
+    for( Index i = 0; i < n; i++ )
+    {
+-      suftab_[i].name = strdup(suffix_ids_[i].c_str());
++      suftab_[i].name = ipopt_strdup(suffix_ids_[i].c_str());
+       suftab_[i].table = 0;
+ 
+       if( suffix_sources_[i] == Variable_Source )

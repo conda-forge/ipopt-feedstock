@@ -10,6 +10,7 @@ source:
     sha256: cc8c217991240db7eb14189eee0dff88f20a89bac11958b48625fa512fe8d104
     patches:
       - pkg-config-do-not-add-requires-private.patch
+      - handle-strdup-on-win.patch
 
 build:
   number: 10
@@ -23,7 +24,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
-    - cmake  # [win]
+    - autotools_clang_conda  # [win]
     - make  # [not win]
     - wget  # [not win]
     - pkg-config
@@ -33,6 +34,7 @@ requirements:
     - mumps-seq
     - libspral  # [linux]
     - ampl-mp  # [not win]
+    - ampl-asl  # [win]
 
 test:
   files:
