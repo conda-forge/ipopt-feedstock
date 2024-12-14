@@ -19,7 +19,10 @@ build:
 requirements:
   build:
     - gnuconfig  # [unix]
-    - {{ compiler('fortran') }}
+    # Do not depend on a fortran compiler on Windows,
+    # see https://github.com/conda-forge/ipopt-feedstock/pull/125#issuecomment-2543175086
+    # for more details
+    - {{ compiler('fortran') }}  # [not win]
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
@@ -40,7 +43,10 @@ test:
     - mytoy.nl
 
   requires:
-    - {{ compiler('fortran') }}
+    # Do not depend on a fortran compiler on Windows,
+    # see https://github.com/conda-forge/ipopt-feedstock/pull/125#issuecomment-2543175086
+    # for more details
+    - {{ compiler('fortran') }}   # [not win]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - pkg-config
