@@ -23,7 +23,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
-    - cmake  # [win]
+    - autotools_clang_conda  # [win]
     - make  # [not win]
     - wget  # [not win]
     - pkg-config
@@ -32,7 +32,7 @@ requirements:
     - liblapack
     - mumps-seq
     - libspral  # [linux]
-    - ampl-asl  # [not win]
+    - ampl-asl
 
 test:
   files:
