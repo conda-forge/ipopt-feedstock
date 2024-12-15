@@ -1,5 +1,5 @@
 {% set name = "Ipopt" %}
-{% set version = "3.14.16" %}
+{% set version = "3.14.17" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   - url: https://github.com/coin-or/Ipopt/archive/releases/{{ version }}.tar.gz
-    sha256: cc8c217991240db7eb14189eee0dff88f20a89bac11958b48625fa512fe8d104
+    sha256: 17ab8e9a6059ab11172c184e5947e7a7dda9fed0764764779c27e5b8e46f3d75
     patches:
       - pkg-config-do-not-add-requires-private.patch
 
 build:
-  number: 11
+  number: 0
   run_exports:
     - {{ pin_subpackage('ipopt', max_pin='x.x.x') }}
 
