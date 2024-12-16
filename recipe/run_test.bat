@@ -23,3 +23,11 @@ if errorlevel 1 exit 1
 :: Run example
 .\cpp_example.exe mumps | find "Optimal Solution"
 if errorlevel 1 exit 1
+
+:: Compile examples that links the backward-compatibilty import library ipopt-3.lib
+:: See https://github.com/conda-forge/ipopt-feedstock/pull/125#issuecomment-2544745043
+del .\cpp_example.exe
+cl.exe /EHsc /I%PREFIX%\Library\include\coin-or ipopt-3.lib cpp_example.cpp MyNLP.cpp
+if errorlevel 1 exit 1
+.\cpp_example.exe mumps | find "Optimal Solution"
+if errorlevel 1 exit 1
