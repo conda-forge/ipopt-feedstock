@@ -60,4 +60,9 @@ if [[ "$target_platform" == "win-64" ]]; then
   # sipopt.dll.lib
   mv "${PREFIX}/lib/ipoptamplinterface.dll.lib" "${PREFIX}/lib/ipoptamplinterface.lib"
   mv "${PREFIX}/lib/sipopt.dll.lib" "${PREFIX}/lib/sipopt.lib"
+  # While the ipopt.dll.lib library is renamed to ipopt.lib by run_autotools_clang_conda_build, for backward
+  # compatibility (see https://github.com/conda-forge/ipopt-feedstock/pull/125#issuecomment-2544745043)
+  # we also want to install ipopt-3.lib that was the import library name used by the Windows package of ipopt in conda-forge < 3.14.17
+  du -h "${PREFIX}/lib/ipopt.dll.lib"
+  cp "${PREFIX}/lib/ipopt.dll.lib" "${PREFIX}/lib/ipopt-3.lib"
 fi
