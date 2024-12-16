@@ -1,5 +1,5 @@
 {% set name = "Ipopt" %}
-{% set version = "3.14.16" %}
+{% set version = "3.14.17" %}
 
 package:
   name: {{ name|lower }}
@@ -7,23 +7,26 @@ package:
 
 source:
   - url: https://github.com/coin-or/Ipopt/archive/releases/{{ version }}.tar.gz
-    sha256: cc8c217991240db7eb14189eee0dff88f20a89bac11958b48625fa512fe8d104
+    sha256: 17ab8e9a6059ab11172c184e5947e7a7dda9fed0764764779c27e5b8e46f3d75
     patches:
       - pkg-config-do-not-add-requires-private.patch
 
 build:
-  number: 11
+  number: 0
   run_exports:
     - {{ pin_subpackage('ipopt', max_pin='x.x.x') }}
 
 requirements:
   build:
     - gnuconfig  # [unix]
-    - {{ compiler('fortran') }}
+    # Do not depend on a fortran compiler on Windows,
+    # see https://github.com/conda-forge/ipopt-feedstock/pull/125#issuecomment-2543175086
+    # for more details
+    - {{ compiler('fortran') }}  # [not win]
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
-    - cmake  # [win]
+    - autotools_clang_conda  # [win]
     - make  # [not win]
     - wget  # [not win]
     - pkg-config
@@ -32,7 +35,7 @@ requirements:
     - liblapack
     - mumps-seq
     - libspral  # [linux]
-    - ampl-asl  # [not win]
+    - ampl-asl
 
 test:
   files:
@@ -40,7 +43,10 @@ test:
     - mytoy.nl
 
   requires:
-    - {{ compiler('fortran') }}
+    # Do not depend on a fortran compiler on Windows,
+    # see https://github.com/conda-forge/ipopt-feedstock/pull/125#issuecomment-2543175086
+    # for more details
+    - {{ compiler('fortran') }}   # [not win]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - pkg-config
