@@ -12,7 +12,7 @@ source:
       - pkg-config-do-not-add-requires-private.patch
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage('ipopt', max_pin='x.x.x') }}
 
@@ -22,7 +22,7 @@ requirements:
     # Do not depend on a fortran compiler on Windows,
     # see https://github.com/conda-forge/ipopt-feedstock/pull/125#issuecomment-2543175086
     # for more details
-    - {{ compiler('fortran') }}  # [not win]
+    - {{ compiler("fortran") }}
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
@@ -46,7 +46,7 @@ test:
     # Do not depend on a fortran compiler on Windows,
     # see https://github.com/conda-forge/ipopt-feedstock/pull/125#issuecomment-2543175086
     # for more details
-    - {{ compiler('fortran') }}   # [not win]
+    - {{ compiler("fortran") }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - pkg-config
