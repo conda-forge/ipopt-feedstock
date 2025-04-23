@@ -31,7 +31,7 @@ cd build
   --with-mumps-cflags="-I${PREFIX}/include/mumps_seq" \
   --with-mumps-lflags="${MUMPS_LFLAGS}" \
   --with-lapack \
-  --with-lapack-lflags="-llapack" \
+  --with-lapack-lflags="-llapack -lblas" \
   --with-asl \
   --with-asl-cflags="-I${PREFIX}/include/asl" \
   --with-asl-lflags="-lasl" \
