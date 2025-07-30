@@ -26,6 +26,7 @@ cd build
 
 ../configure \
   --without-hsl $SPRAL_OPTIONS \
+  --disable-fortran \
   --disable-java \
   --with-mumps \
   --with-mumps-cflags="-I${PREFIX}/include/mumps_seq" \
