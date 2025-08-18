@@ -19,13 +19,13 @@ cxx_compiler_version:
 docker_image:
 - quay.io/condaforge/linux-anvil-x86_64:alma9
 ipopt:
-- 3.14.17
+- 3.14.19
 libblas:
 - 3.9.* *netlib
 liblapack:
 - 3.9.* *netlib
 mumps_seq:
-- 5.7.3
+- 5.8.1
 target_platform:
 - linux-64
 zip_keys:
