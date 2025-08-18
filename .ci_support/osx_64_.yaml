@@ -19,7 +19,7 @@ cxx_compiler:
 cxx_compiler_version:
 - '19'
 ipopt:
-- 3.14.17
+- 3.14.19
 libblas:
 - 3.9.* *netlib
 liblapack:
@@ -27,7 +27,7 @@ liblapack:
 macos_machine:
 - x86_64-apple-darwin13.4.0
 mumps_seq:
-- 5.7.3
+- 5.8.1
 target_platform:
 - osx-64
 zip_keys:
