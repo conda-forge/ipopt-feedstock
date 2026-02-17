@@ -15,6 +15,6 @@ libblas:
 liblapack:
 - 3.9.* *netlib
 mumps_seq:
-- 5.8.1
+- 5.8.2
 target_platform:
 - win-64
